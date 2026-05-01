@@ -1,1 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mini PvP Club</title>
+</head>
+<body>
+    <h2>JSON</h2>
+    <pre id="Username"></pre>
+</body>
 
+<script>
+    fetch("data.json")
+        .then(res => res.json())
+        .then(data => {
+            document.getElementById("Username").innerHTML =
+                `${data.Username}`;
+        });
+</script>
+</html>
