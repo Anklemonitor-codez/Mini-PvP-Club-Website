@@ -6,8 +6,12 @@
     <title>Mini PvP Club</title>
 </head>
 <body>
-    <h2>JSON</h2>
-    <pre id="list"></pre>
+    <div id="player-template" class="player" style="display:none;">
+        <span class="name"></span>
+        <span class="rank"></span>
+    </div>
+
+    <div id="leaderboard"></div>
 </body>
 
 <script>
@@ -15,10 +19,23 @@
         .then(res => res.json())
         .then(data => {
 
-            document.getElementById("list").innerHTML =
-                data.Players.map(p =>
-                    `<li>${p.Username} - ${p.Rank}</li>`
-                ).join("");
+            const container = document.getElementById("leaderboard");
+            const template = document.getElementById("player-template");
+
+            data.Players.forEach(player => {
+
+                // clone template
+                const clone = template.cloneNode(true);
+                clone.style.display = "block"; // show it
+                clone.removeAttribute("id"); // avoid duplicate IDs
+
+                // fill data
+                clone.querySelector(".name").textContent = player.Username;
+                clone.querySelector(".rank").textContent = player.Rank;
+
+                // add to page
+                container.appendChild(clone);
+            });
 
         });
 </script>
