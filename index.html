@@ -11,11 +11,15 @@
 </body>
 
 <script>
-    fetch("data.json")
+    fetch("players.json")
         .then(res => res.json())
         .then(data => {
-            document.getElementById("Username").innerHTML =
-                `${data.Username}`;
+
+            document.getElementById("list").innerHTML =
+                data.Players.map(p =>
+                    `<li>${p.Username} - ${p.Rank}</li>`
+                ).join("");
+
         });
 </script>
 </html>
