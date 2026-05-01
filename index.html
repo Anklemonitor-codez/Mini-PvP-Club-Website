@@ -22,18 +22,15 @@
             const container = document.getElementById("leaderboard");
             const template = document.getElementById("player-template");
 
+            container.innerHTML = "";
+
             data.Players.forEach(player => {
 
-                // clone template
-                const clone = template.cloneNode(true);
-                clone.style.display = "block"; // show it
-                clone.removeAttribute("id"); // avoid duplicate IDs
+                const clone = template.content.cloneNode(true);
 
-                // fill data
                 clone.querySelector(".name").textContent = player.Username;
                 clone.querySelector(".rank").textContent = player.Rank;
 
-                // add to page
                 container.appendChild(clone);
             });
 
