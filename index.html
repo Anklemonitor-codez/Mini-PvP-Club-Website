@@ -20,7 +20,7 @@
         const leaderboard = document.querySelector('#leaderboard')
 
         for (const player of Object.keys(players)) {
-            leaderboard.innerHTML += '<li>${player.Username}</li>';
+            leaderboard.innerHTML += player.Username;
         }
     }
 
