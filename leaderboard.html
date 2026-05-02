@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mini PvP Club</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="bubble" style="top:-150px; left:-150px; background-color: rgb(5, 47, 109);"></div>
+    <div class="bubble" style="top:-150px; right:-150px; background-color: rgb(23, 104, 6);"></div>
+    <div class="bubble" style="bottom:-150px; left:-150px; background-color: rgb(94, 95, 4);"></div>
+    <div class="bubble" style="bottom:-150px; right:-150px;"></div>
+    <div class="bubble" style="bottom:-40px; right:26.5vw; width: 50vw; height: 100vh;"></div>
+    <div class="header">
+        <div id="brand-link" style="float: left;">
+            <a href="https://discord.gg/7qRr255gba" id="brand-name-link" target="_blank">
+                Mini PvP Club
+            </a>
+        </div>
+        <div class="center-header-items">
+            <div class="sub-item" id="center-header-items-container">
+                <a class="link" href="/" id="home" target="_self">
+                    Home
+                </a>
+                <a class="link" id="discord" href="https://discord.gg/7qRr255gba" target="_blank">
+                    Discord
+                </a>
+                <a class="link" id="leaderboard-link" href="/leaderboard.html" target="_self" style="background-color: rgba(122, 122, 122, 0.521);">
+                    Leaderboard
+                </a>
+            </div>
+            
+        </div>
+
+    </div>
+    <div class="main">
+        <div class="sub-item" id="title">
+            Leaderboard
+        </div>
+        <div class="sub-item" id="extra-info">
+            Overall Rankings
+        </div>
+        <ul id="leaderboard">
+        </ul>
+    </div>
+</body>
+
+<script>
+    main();
+
+    async function main() {
+        const players = await fetchData();
+
+        const leaderboard = document.querySelector('#leaderboard')
+
+        for (const player of players) {
+            if (player.Rank == 1) {
+                leaderboard.innerHTML += `<div class="leaderboard-slot-1">
+                <div class="leaderboard-ranking-1">${player.Rank}</div>
+                <img class="player-image" src="https://render.crafty.gg/3d/bust/${player.Username}" alt="${player.Username} bust">
+                <div class="username">${player.Username}</div>
+                </div>`; 
+            }
+            if (player.Rank == 2) {
+                leaderboard.innerHTML += `<div class="leaderboard-slot-2">
+                <div class="leaderboard-ranking-2">${player.Rank}</div>
+                <img class="player-image" src="https://render.crafty.gg/3d/bust/${player.Username}" alt="${player.Username} bust">
+                <div class="username">${player.Username}</div>
+                </div>`; 
+            }
+            if (player.Rank == 3) {
+                leaderboard.innerHTML += `<div class="leaderboard-slot-3">
+                <div class="leaderboard-ranking-3">${player.Rank}</div>
+                <img class="player-image" src="https://render.crafty.gg/3d/bust/${player.Username}" alt="${player.Username} bust">
+                <div class="username">${player.Username}</div>
+                </div>`; 
+            }
+            if (player.Rank != 1 && player.Rank != 2 && player.Rank != 3) {
+                leaderboard.innerHTML += `<div class="leaderboard-slot">
+                <div class="leaderboard-ranking">${player.Rank}</div>
+                <img class="player-image" src="https://render.crafty.gg/3d/bust/${player.Username}" alt="${player.Username} bust">
+                <div class="username">${player.Username}</div>
+                </div>`;
+            }
+        }
+    }
+
+    async function fetchData() {
+        const res = await fetch("players.json");
+        const data = await res.json();
+        return data;
+    }
+
+</script>
+</html>
