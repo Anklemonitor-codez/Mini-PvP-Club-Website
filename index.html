@@ -17,7 +17,13 @@
     async function main() {
         const players = await fetchData();
 
-        console.log(players);
+        const playersObj = players.Players;
+
+        const leaderboard = document.querySelector('#leaderboard')
+
+        for (const player of playersObj) {
+            leaderboard.innerHTML += '<li>${player.Username}: ${player.Rank}</li>';
+        }
     }
 
     async function fetchData() {
