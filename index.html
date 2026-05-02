@@ -20,9 +20,8 @@
         const leaderboard = document.querySelector('#leaderboard')
 
         for (const player of Object.keys(players)) {
-            leaderboard.innerHTML += player.Username;
+            leaderboard.innerHTML += players.Username;
         }
-        console.log(players)
     }
 
     async function fetchData() {
