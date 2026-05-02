@@ -20,8 +20,7 @@
         const leaderboard = document.querySelector('#leaderboard')
 
         for (const player of players) {
-            leaderboard.innerHTML += player.Username;
-            console.log(player.Username)
+            leaderboard.innerHTML += '<li>Username: ${player.Username}<br> Rank: ${player.Rank}</li>';
         }
     }
 
