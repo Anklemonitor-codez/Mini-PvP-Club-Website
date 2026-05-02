@@ -6,34 +6,25 @@
     <title>Mini PvP Club</title>
 </head>
 <body>
-    <div id="player-template" class="player" style="display:none;">
-        <span class="name"></span>
-        <span class="rank"></span>
-    </div>
+    <ul id="leaderboard">
 
-    <div id="leaderboard"></div>
+    </ul>
 </body>
 
 <script>
-    fetch("players.json")
-        .then(res => res.json())
-        .then(data => {
+    main();
 
-            const container = document.getElementById("leaderboard");
-            const template = document.getElementById("player-template");
+    async function main() {
+        const players = await fetchData();
 
-            container.innerHTML = "";
+        console.log(players);
+    }
 
-            data.Players.forEach(player => {
+    async function fetchData() {
+        const res = await fetch("players.json");
+        const data = await res.json();
+        return data;
+    }
 
-                const clone = template.content.cloneNode(true);
-
-                clone.querySelector(".name").textContent = player.Username;
-                clone.querySelector(".rank").textContent = player.Rank;
-
-                container.appendChild(clone);
-            });
-
-        });
 </script>
 </html>
