@@ -1,0 +1,73 @@
+[
+  {
+    "id": "1",
+    "Username":"UselessKeyboard",
+    "tiers": {
+      "Sword": "HT1",
+      "Diamond_pot": "LT1",
+      "Netherite_pot": "HT2",
+      "Axe": "LT2",
+      "Vanilla": "HT1",
+      "UHC": "LT3",
+      "Mace": "HT4",
+      "SMP": "LT4"
+    },
+    "Rank": ""
+  },
+  {
+    "Username":"ShadowBlade28",
+    "tiers": {
+      "Sword": "LT1",
+      "Diamond_pot": "---",
+      "Netherite_pot": "HT2",
+      "Axe": "---",
+      "Vanilla": "---",
+      "UHC": "---",
+      "Mace": "---",
+      "SMP": "---"
+    },
+    "Rank": ""
+  },
+  {
+    "Username":"Gammaray1021",
+    "tiers": {
+      "Sword": "LT2",
+      "Diamond_pot": "LT1",
+      "Netherite_pot": "HT2",
+      "Axe": "HT2",
+      "Vanilla": "LT5",
+      "UHC": "LT3",
+      "Mace": "LT4",
+      "SMP": "LT4"
+    },
+    "Rank": ""
+  },
+  {
+    "Username":"Marlowww",
+    "tiers": {
+      "Sword": "LT5",
+      "Diamond_pot": "LT5",
+      "Netherite_pot": "LT5",
+      "Axe": "LT5",
+      "Vanilla": "LT5",
+      "UHC": "LT5",
+      "Mace": "LT5",
+      "SMP": "LT5"
+    },
+    "Rank": ""
+  },
+  {
+    "Username":"Marlowww",
+    "tiers": {
+      "Sword": "LT5",
+      "Diamond_pot": "LT5",
+      "Netherite_pot": "LT5",
+      "Axe": "LT5",
+      "Vanilla": "LT5",
+      "UHC": "LT5",
+      "Mace": "LT5",
+      "SMP": "LT5"
+    },
+    "Rank": ""
+  }
+]

@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mini PvP Club</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="bubble" style="top:-150px; left:-150px; background-color: rgb(5, 47, 109);"></div>
+    <div class="bubble" style="top:-150px; right:-150px; background-color: rgb(23, 104, 6);"></div>
+    <div class="bubble" style="bottom:-150px; left:-150px; background-color: rgb(94, 95, 4);"></div>
+    <div class="bubble" style="bottom:-150px; right:-150px;"></div>
+    <div class="bubble" style="bottom:-40px; right:26.5vw; width: 50vw; height: 100vh;"></div>
+    <div id="credit-brand" style="bottom:0px; right:0px;">MADE BY <span>Ankle Monitor</span></div>
+    <div id="floater-container" style="display: flex; justify-content: center; width: 100vw; position: absolute; height: 100vh; align-items: center;">
+        <div class="floating" id="info-floater">
+            <div id="top-scroll-hider"></div>                            
+            <div id="title-buttons">
+                <a id="title-button" onclick="switchToTitles()" style="cursor: pointer;">Titles</a>
+                <a id="points-button" onclick="switchToPoints()" style="cursor: pointer;">Points</a>
+            </div>
+            <div class="mini-title">How to obtain <span style="text-decoration: underline;">achievement titles</span></div>
+            <div id="info-panels-container">
+                <div class="info-panels" id="champion" style="border-color: gold; box-shadow: 0 0 8px gold;">
+                    <img src="Assets/crown.png" alt="crown" style="filter: drop-shadow(0 0 10px gold) drop-shadow(0 0 10px);">
+                    <span style="color: goldenrod; font-size: 25px; text-shadow: 0 0 5px gold;">Champion</span><br>
+                    <span style="color: rgb(194, 188, 188);">Obtained at 300+ points.</span>
+                </div>
+                <div class="info-panels" id="grandmaster" style="border-color: gold;">
+                    <img src="Assets/crown.png" alt="crown">
+                    <span style="color: rgb(155, 118, 26); font-size: 25px;">Grandmaster</span><br>
+                    <span style="color: rgb(194, 188, 188);">Obtained at 200+ points.</span>
+                </div>
+                <div class="info-panels" id="master" style="border-color: goldenrod;">
+                    <img src="Assets/crown 2.png" alt="crown">
+                    <span style="color: goldenrod; font-size: 25px;">Master</span><br>
+                    <span style="color: rgb(194, 188, 188);">Obtained at 100+ points.</span>
+                </div>
+                <div class="info-panels" id="pro" style="border-color: rgb(245, 12, 12);">
+                    <img src="Assets/xp_orb.png" alt="xp-orb">
+                    <span style="color: rgb(245, 12, 12); font-size: 25px;">Pro</span><br>
+                    <span style="color: rgb(194, 188, 188);">Obtained at 50+ points.</span>
+                </div>
+                <div class="info-panels" id="advanced" style="border-color: rgb(179, 12, 245);">
+                    <img src="Assets/xp_orb.png" alt="xp-orb">
+                    <span style="color: rgb(179, 12, 245); font-size: 25px;">Advanced</span><br>
+                    <span style="color: rgb(194, 188, 188);">Obtained at 25+ points.</span>
+                </div>
+                <div class="info-panels" id="intermediate" style="border-color: rgb(179, 12, 245);">
+                    <img src="Assets/xp_orb.png" alt="xp-orb">
+                    <span style="color: rgb(179, 12, 245); font-size: 25px;">Intermediate</span><br>
+                    <span style="color: rgb(194, 188, 188);">Obtained at 10+ points.</span>
+                </div>
+                <div class="info-panels" id="beginner" style="border-color: rgb(133, 130, 134);">
+                    <img src="Assets/xp_orb.png" alt="xp-orb">
+                    <span style="color: rgb(133, 130, 134); font-size: 25px;">Beginner</span><br>
+                    <span style="color: rgb(194, 188, 188);">Less than 10 points.</span>
+                </div>
+            </div>
+        </div>
+        <div class="floating" id="info-floater-points">
+            <div id="top-scroll-hider"></div>
+            <div id="title-buttons">
+                <a id="title-button-points" onclick="switchToTitles()" style="cursor: pointer;">Titles</a>
+                <a id="points-button-points" onclick="switchToPoints()" style="cursor: pointer;">Points</a>
+            </div>
+            <div class="mini-title">How points are calculated</div>
+            <div class="points-cat" id="tier-1">
+                <span>Tier 1</span>
+                <div id="points-info">
+                    <div class="points-disp" id="high-tier" style="background-color: rgb(250, 192, 0); border-color: rgb(102, 76, 10);">︽60 Points</div>
+                    <div class="points-disp" id="low-tier" style="background-color: rgba(250, 192, 0, 0.726); border-color: rgb(102, 76, 10);">︿45 Points</div>
+                </div>
+            </div>
+            <div class="points-cat" id="tier-2">
+                <span>Tier 2</span>
+                <div id="points-info">
+                    <div class="points-disp" id="high-tier" style="background-color: rgb(131, 131, 131); border-color: rgb(73, 73, 73);">︽30 Points</div>
+                    <div class="points-disp" id="low-tier" style="background-color: rgba(131, 131, 131, 0.726); border-color: rgb(73, 73, 73);">︿20 Points</div>
+                </div>
+            </div>
+            <div class="points-cat" id="tier-3">
+                <span>Tier 3</span>
+                <div id="points-info">
+                    <div class="points-disp" id="high-tier" style="background-color: rgb(172, 92, 2); border-color: rgb(82, 44, 1);">︽10 Points</div>
+                    <div class="points-disp" id="low-tier" style="background-color: rgba(172, 92, 2, 0.726); border-color: rgb(82, 44, 1);">︿6 Points</div>
+                </div>
+            </div>
+            <div class="points-cat" id="tier-4">
+                <span>Tier 4</span>
+                <div id="points-info">
+                    <div class="points-disp" id="high-tier" style="background-color: rgb(71, 71, 71); border-color: rgb(44, 44, 44);">︽4 Points</div>
+                    <div class="points-disp" id="low-tier" style="background-color: rgba(71, 71, 71, 0.726); border-color: rgb(44, 44, 44);">︿3 Points</div>
+                </div>
+            </div>
+            <div class="points-cat" id="tier-4">
+                <span>Tier 5</span>
+                <div id="points-info">
+                    <div class="points-disp" id="high-tier" style="background-color: rgb(71, 71, 71); border-color: rgb(44, 44, 44);">︽2 Points</div>
+                    <div class="points-disp" id="low-tier" style="background-color: rgba(71, 71, 71, 0.726); border-color: rgb(44, 44, 44);">︿1 Points</div>
+                </div>
+            </div>
+        </div>
+
+        
+    </div>
+    <div class="floating" id="floater-background" onclick="hideInfo(); hidePlayerStats()"></div>
+    <div class="header">
+        <div id="brand-link" >
+            <a href="https://discord.gg/7qRr255gba" id="brand-name-link" target="_blank">
+                Mini PvP Club
+            </a>
+        </div>
+        <div class="center-header-items">
+            <div class="sub-item" id="center-header-items-container">
+                <a class="link" href="/" id="home" target="_self" style="background-color: rgba(122, 122, 122, 0.521);">
+                    Home
+                </a>
+                <a class="link" id="discord" href="https://discord.gg/7qRr255gba" target="_blank">
+                    Discord
+                </a>
+                <a class="link" id="info-link" onclick="displayInfo()" style="cursor: pointer;">
+                    Info
+                </a>
+            </div>
+            
+        </div>
+
+    </div>
+    <div class="main">
+    <!--<div class="sub-item" id="gamemodes">
+            <button class="gamemode-button" id="sword-button" onclick="window.location.href='sword.html'" style="cursor: pointer;">
+                <img class="gamemode-image" src="Assets/Diamond_Sword.png" alt="diamond-sword">
+                <span class="gamemode-text" id="sword-text">Sword</span>
+            </button>
+            <button class="gamemode-button" id="axe-button" onclick="window.location.href='axe.html'" style="cursor: pointer;">
+                <img class="gamemode-image" src="Assets/Diamond_Axe.png" alt="diamond_Axe">
+                <span class="gamemode-text" id="axe-text">Axe</span>
+            </button>
+            <button class="gamemode-button" id="uhc-button" onclick="window.location.href='uhc.html'" style="cursor: pointer;">
+                <img class="gamemode-image" src="Assets/Lava_Bucket.png" alt="lava-bucket">
+                <span class="gamemode-text" id="uhc-text">UHC</span>
+            </button>
+            <button class="gamemode-button" id="vanilla-button" onclick="window.location.href='vanilla.html'" style="cursor: pointer;">
+                <img class="gamemode-image" src="Assets/End_Crystal.png" alt="end-crystal">
+                <span class="gamemode-text" id="vanilla-text">Vanilla</span>
+            </button>
+            <button class="gamemode-button" id="mace-button" onclick="window.location.href='mace.html'" style="cursor: pointer;">
+                <img class="gamemode-image" src="Assets/Mace.png" alt="mace">
+                <span class="gamemode-text" id="mace-text">Mace</span>
+            </button>
+            <button class="gamemode-button" id="smp-button" onclick="window.location.href='smp.html'" style="cursor: pointer;">
+                <img class="gamemode-image" src="Assets/Shield.png" alt="shield">
+                <span class="gamemode-text" id="smp-text">SMP</span>
+            </button>
+            <button class="gamemode-button" id="pot-button" onclick="window.location.href='pot.html'" style="cursor: pointer;">
+                <img class="gamemode-image" src="Assets/Potion_Healing.png" alt="healing-potion">
+                <span class="gamemode-text" id="pot-text">Diamond Pot</span>
+            </button>
+            <button class="gamemode-button" id="neth-pot-button" onclick="window.location.href='netherite-pot.html'" style="cursor: pointer;">
+                <img class="gamemode-image" src="Assets/Netherite_Helmet.png" alt="netherite-helmet">
+                <span class="gamemode-text" id="neth-pot-text">Netherite Pot</span>
+            </button>
+        </div>-->
+        <div class="sub-item" id="mini-title">
+            Leaderboard
+        </div>
+        <div class="sub-item" id="extra-info" style="font-size: 1.2vw;">
+            Overall Rankings
+        </div>
+        <div id="leaderboard-wrapper">
+            <ul id="leaderboard">
+                
+            </ul>
+        </div>
+    </div>
+    <div class="footer">
+        <div id="made-by-ankle-monitor">Made by Ankle Monitor</div>
+        <div id="skins-via">Skins via <span>render.crafty.gg</span></div>
+    </div>
+</body>
+
+<script>
+    const tierPoints = {
+        "HT1": 60,
+        "LT1": 45,
+        "HT2": 30,
+        "LT2": 20,
+        "HT3": 10,
+        "LT3": 6,
+        "HT4": 4,
+        "LT4": 3,
+        "HT5": 2,
+        "LT5": 1
+    };
+
+    const titles = [
+        { minScore: 0, title: "Beginner", color: "var(--beginnerColor)"},
+        { minScore: 10, title: "Intermediate", color: "var(--intermediateColor)"},
+        { minScore: 25, title: "Advanced", color: "var(--advancedColor)"},
+        { minScore: 50, title: "Pro", color: "var(--proColor)" },
+        { minScore: 100, title: "Master", color: "var(--masterColor)"},
+        { minScore: 200, title: "Grandmaster", color: "var(--grandmasterColor)"},
+        { minScore: 300, title: "Champion", color: "var(--championColour)"}
+        
+    ];
+
+    main();
+
+    async function main() {
+        const players = await fetchData();
+
+        const leaderboard = document.querySelector('#leaderboard');
+
+        players.forEach(player => {
+            player.score = calculateScore(player);
+        });
+
+        players.sort((a, b) => b.score - a.score);
+
+        players.forEach((player, index) => {
+            player.Rank = index + 1;
+        });
+
+        for (const player of players) {
+
+            const swordColor = player.tiers.Sword;
+            const axeColor = player.tiers.Axe;
+            const uhcColor = player.tiers.UHC;
+            const vanillaColor = player.tiers.Vanilla;
+            const maceColor = player.tiers.Mace;
+            const smpColor = player.tiers.SMP;
+            const diaPotColor = player.tiers.Diamond_pot;
+            const nethPotColor = player.tiers.Netherite_pot;
+
+            playerScore = player.score;
+            playerTitle = getTitle(playerScore);
+            console.log(`${playerScore}`);
+            if (player.Rank == 1) {
+                leaderboard.innerHTML += `<div class="leaderboard-slot-1" onclick="openPlayerStats('${player.Username}', ${playerScore}, ${player.Rank})">
+                <div class="leaderboard-ranking-1">${player.Rank}</div>
+                <img class="player-image" src="https://render.crafty.gg/3d/bust/${player.Username}" alt="${player.Username} bust">
+                <div class="points-badge-and-name">
+                    <div class="username">${player.Username}</div>
+                    <div class="player-title" style="color: ${playerTitle.color};">${playerTitle.title}<span style="color: rgb(153, 153, 153); font-weight: normal;">(${playerScore} points)</span></div>
+                </div>
+                <div class="gamemode-tiers">
+                    <div id="sword-gamemode">
+                        <div class="img-border" style="border: solid 2px ${getTierColor(player.tiers.Sword)}; box-shadow: 0 0 3px ${getTierColor(player.tiers.Sword)};"><img class="gamemode-image-player" src="Assets/Diamond_Sword.png" alt="diamond sword"></div>
+                        <div class="gamemode-type" style="background-color: ${getTierColor(player.tiers.Sword)};">${player.tiers.Sword}</div>
+                    </div>
+                    <div id="axe-gamemode">
+                        <div class="img-border" style="border: solid 2px ${getTierColor(player.tiers.Axe)}; box-shadow: 0 0 3px ${getTierColor(player.tiers.Axe)};"><img class="gamemode-image-player" src="Assets/Diamond_Axe.png" alt="diamond axe"></div>
+                        <div class="gamemode-type" style="background-color: ${getTierColor(player.tiers.Axe)};">${player.tiers.Axe}</div>
+                    </div>
+                    <div id="uhc-gamemode">
+                        <div class="img-border" style="border: solid 2px ${getTierColor(player.tiers.UHC)}; box-shadow: 0 0 3px ${getTierColor(player.tiers.UHC)};"><img class="gamemode-image-player" src="Assets/Lava_Bucket.png" alt="diamond axe"></div>
+                        <div class="gamemode-type" style="background-color: ${getTierColor(player.tiers.UHC)};">${player.tiers.UHC}</div>
+                    </div>
+                    <div id="vanilla-gamemode">
+                        <div class="img-border" style="border: solid 2px ${getTierColor(player.tiers.Vanilla)}; box-shadow: 0 0 3px ${getTierColor(player.tiers.Vanilla)};"><img class="gamemode-image-player" src="Assets/End_Crystal.png" alt="end crystal"></div>
+                        <div class="gamemode-type" style="background-color: ${getTierColor(player.tiers.Vanilla)};">${player.tiers.Vanilla}</div>
+                    </div>
+                    <div id="mace-gamemode">
+                        <div class="img-border" style="border: solid 2px ${getTierColor(player.tiers.Mace)}; box-shadow: 0 0 3px ${getTierColor(player.tiers.Mace)};"><img class="gamemode-image-player" src="Assets/Mace.png" alt="mace"></div>
+                        <div class="gamemode-type" style="background-color: ${getTierColor(player.tiers.Mace)};">${player.tiers.Mace}</div>
+                    </div>
+                    <div id="smp-gamemode">
+                        <div class="img-border" style="border: solid 2px ${getTierColor(player.tiers.SMP)}; box-shadow: 0 0 3px ${getTierColor(player.tiers.SMP)};"><img class="gamemode-image-player" src="Assets/Shield.png" alt="shield"></div>
+                        <div class="gamemode-type" style="background-color: ${getTierColor(player.tiers.SMP)};">${player.tiers.SMP}</div>
+                    </div>
+                    <div id="dia-pot-gamemode">
+                        <div class="img-border" style="border: solid 2px ${getTierColor(player.tiers.Diamond_pot)}; box-shadow: 0 0 3px ${getTierColor(player.tiers.Diamond_pot)};"><img class="gamemode-image-player" src="Assets/Potion_Healing.png" alt="potion"></div>
+                        <div class="gamemode-type" style="background-color: ${getTierColor(player.tiers.Diamond_pot)};">${player.tiers.Diamond_pot}</div>
+                    </div>
+                    <div id="neth-pot-gamemode">
+                        <div class="img-border" style="border: solid 2px ${getTierColor(player.tiers.Netherite_pot)}; box-shadow: 0 0 3px ${getTierColor(player.tiers.Netherite_pot)};"><img class="gamemode-image-player" src="Assets/Netherite_Helmet.png" alt="netherite helmet"></div>
+                        <div class="gamemode-type" style="background-color: ${getTierColor(player.tiers.Netherite_pot)};">${player.tiers.Netherite_pot}</div>
+                    </div>
+                </div>
+            </div>`; 
+            }
+            if (player.Rank == 2) {
+                leaderboard.innerHTML += `<div class="leaderboard-slot-2" onclick="openPlayerStats('${player.Username}', ${playerScore}, ${player.Rank})">
+                <div class="leaderboard-ranking-2">${player.Rank}</div>
+                <img class="player-image" src="https://render.crafty.gg/3d/bust/${player.Username}" alt="${player.Username} bust">
+                <div class="points-badge-and-name">
+                    <div class="username">${player.Username}</div>
+                    <div class="player-title" style="color: ${playerTitle.color};">${playerTitle.title}<span style="color: rgb(153, 153, 153); font-weight: normal;">(${playerScore} points)</span></div>
+                </div>
+                <div class="gamemode-tiers">
+                    <div id="sword-gamemode">
+                        <div class="img-border" style="border: solid 2px ${getTierColor(player.tiers.Sword)}; box-shadow: 0 0 3px ${getTierColor(player.tiers.Sword)};"><img class="gamemode-image-player" src="Assets/Diamond_Sword.png" alt="diamond sword"></div>
+                        <div class="gamemode-type" style="background-color: ${getTierColor(player.tiers.Sword)};">${player.tiers.Sword}</div>
+                    </div>
+                    <div id="axe-gamemode">
+                        <div class="img-border" style="border: solid 2px ${getTierColor(player.tiers.Axe)}; box-shadow: 0 0 3px ${getTierColor(player.tiers.Axe)};"><img class="gamemode-image-player" src="Assets/Diamond_Axe.png" alt="diamond axe"></div>
+                        <div class="gamemode-type" style="background-color: ${getTierColor(player.tiers.Axe)};">${player.tiers.Axe}</div>
+                    </div>
+                    <div id="uhc-gamemode">
+                        <div class="img-border" style="border: solid 2px ${getTierColor(player.tiers.UHC)}; box-shadow: 0 0 3px ${getTierColor(player.tiers.UHC)};"><img class="gamemode-image-player" src="Assets/Lava_Bucket.png" alt="diamond axe"></div>
+                        <div class="gamemode-type" style="background-color: ${getTierColor(player.tiers.UHC)};">${player.tiers.UHC}</div>
+                    </div>
+                    <div id="vanilla-gamemode">
+                        <div class="img-border" style="border: solid 2px ${getTierColor(player.tiers.Vanilla)}; box-shadow: 0 0 3px ${getTierColor(player.tiers.Vanilla)};"><img class="gamemode-image-player" src="Assets/End_Crystal.png" alt="end crystal"></div>
+                        <div class="gamemode-type" style="background-color: ${getTierColor(player.tiers.Vanilla)};">${player.tiers.Vanilla}</div>
+                    </div>
+                    <div id="mace-gamemode">
+                        <div class="img-border" style="border: solid 2px ${getTierColor(player.tiers.Mace)}; box-shadow: 0 0 3px ${getTierColor(player.tiers.Mace)};"><img class="gamemode-image-player" src="Assets/Mace.png" alt="mace"></div>
+                        <div class="gamemode-type" style="background-color: ${getTierColor(player.tiers.Mace)};">${player.tiers.Mace}</div>
+                    </div>
+                    <div id="smp-gamemode">
+                        <div class="img-border" style="border: solid 2px ${getTierColor(player.tiers.SMP)}; box-shadow: 0 0 3px ${getTierColor(player.tiers.SMP)};"><img class="gamemode-image-player" src="Assets/Shield.png" alt="shield"></div>
+                        <div class="gamemode-type" style="background-color: ${getTierColor(player.tiers.SMP)};">${player.tiers.SMP}</div>
+                    </div>
+                    <div id="dia-pot-gamemode">
+                        <div class="img-border" style="border: solid 2px ${getTierColor(player.tiers.Diamond_pot)}; box-shadow: 0 0 3px ${getTierColor(player.tiers.Diamond_pot)};"><img class="gamemode-image-player" src="Assets/Potion_Healing.png" alt="potion"></div>
+                        <div class="gamemode-type" style="background-color: ${getTierColor(player.tiers.Diamond_pot)};">${player.tiers.Diamond_pot}</div>
+                    </div>
+                    <div id="neth-pot-gamemode">
+                        <div class="img-border" style="border: solid 2px ${getTierColor(player.tiers.Netherite_pot)}; box-shadow: 0 0 3px ${getTierColor(player.tiers.Netherite_pot)};"><img class="gamemode-image-player" src="Assets/Netherite_Helmet.png" alt="netherite helmet"></div>
+                        <div class="gamemode-type" style="background-color: ${getTierColor(player.tiers.Netherite_pot)};">${player.tiers.Netherite_pot}</div>
+                    </div>
+                </div>
+            </div>`; 
+            }
+            if (player.Rank == 3) {
+                leaderboard.innerHTML += `<div class="leaderboard-slot-3" onclick="openPlayerStats('${player.Username}', ${playerScore}, ${player.Rank})">
+                <div class="leaderboard-ranking-3">${player.Rank}</div>
+                <img class="player-image" src="https://render.crafty.gg/3d/bust/${player.Username}" alt="${player.Username} bust">
+                <div class="points-badge-and-name">
+                    <div class="username">${player.Username}</div>
+                    <div class="player-title" style="color: ${playerTitle.color};">${playerTitle.title}<span style="color: rgb(153, 153, 153); font-weight: normal;">(${playerScore} points)</span></div>
+                </div>
+                <div class="gamemode-tiers">
+                    <div id="sword-gamemode">
+                        <div class="img-border" style="border: solid 2px ${getTierColor(player.tiers.Sword)}; box-shadow: 0 0 3px ${getTierColor(player.tiers.Sword)};"><img class="gamemode-image-player" src="Assets/Diamond_Sword.png" alt="diamond sword"></div>
+                        <div class="gamemode-type" style="background-color: ${getTierColor(player.tiers.Sword)};">${player.tiers.Sword}</div>
+                    </div>
+                    <div id="axe-gamemode">
+                        <div class="img-border" style="border: solid 2px ${getTierColor(player.tiers.Axe)}; box-shadow: 0 0 3px ${getTierColor(player.tiers.Axe)};"><img class="gamemode-image-player" src="Assets/Diamond_Axe.png" alt="diamond axe"></div>
+                        <div class="gamemode-type" style="background-color: ${getTierColor(player.tiers.Axe)};">${player.tiers.Axe}</div>
+                    </div>
+                    <div id="uhc-gamemode">
+                        <div class="img-border" style="border: solid 2px ${getTierColor(player.tiers.UHC)}; box-shadow: 0 0 3px ${getTierColor(player.tiers.UHC)};"><img class="gamemode-image-player" src="Assets/Lava_Bucket.png" alt="diamond axe"></div>
+                        <div class="gamemode-type" style="background-color: ${getTierColor(player.tiers.UHC)};">${player.tiers.UHC}</div>
+                    </div>
+                    <div id="vanilla-gamemode">
+                        <div class="img-border" style="border: solid 2px ${getTierColor(player.tiers.Vanilla)}; box-shadow: 0 0 3px ${getTierColor(player.tiers.Vanilla)};"><img class="gamemode-image-player" src="Assets/End_Crystal.png" alt="end crystal"></div>
+                        <div class="gamemode-type" style="background-color: ${getTierColor(player.tiers.Vanilla)};">${player.tiers.Vanilla}</div>
+                    </div>
+                    <div id="mace-gamemode">
+                        <div class="img-border" style="border: solid 2px ${getTierColor(player.tiers.Mace)}; box-shadow: 0 0 3px ${getTierColor(player.tiers.Mace)};"><img class="gamemode-image-player" src="Assets/Mace.png" alt="mace"></div>
+                        <div class="gamemode-type" style="background-color: ${getTierColor(player.tiers.Mace)};">${player.tiers.Mace}</div>
+                    </div>
+                    <div id="smp-gamemode">
+                        <div class="img-border" style="border: solid 2px ${getTierColor(player.tiers.SMP)}; box-shadow: 0 0 3px ${getTierColor(player.tiers.SMP)};"><img class="gamemode-image-player" src="Assets/Shield.png" alt="shield"></div>
+                        <div class="gamemode-type" style="background-color: ${getTierColor(player.tiers.SMP)};">${player.tiers.SMP}</div>
+                    </div>
+                    <div id="dia-pot-gamemode">
+                        <div class="img-border" style="border: solid 2px ${getTierColor(player.tiers.Diamond_pot)}; box-shadow: 0 0 3px ${getTierColor(player.tiers.Diamond_pot)};"><img class="gamemode-image-player" src="Assets/Potion_Healing.png" alt="potion"></div>
+                        <div class="gamemode-type" style="background-color: ${getTierColor(player.tiers.Diamond_pot)};">${player.tiers.Diamond_pot}</div>
+                    </div>
+                    <div id="neth-pot-gamemode">
+                        <div class="img-border" style="border: solid 2px ${getTierColor(player.tiers.Netherite_pot)}; box-shadow: 0 0 3px ${getTierColor(player.tiers.Netherite_pot)};"><img class="gamemode-image-player" src="Assets/Netherite_Helmet.png" alt="netherite helmet"></div>
+                        <div class="gamemode-type" style="background-color: ${getTierColor(player.tiers.Netherite_pot)};">${player.tiers.Netherite_pot}</div>
+                    </div>
+                </div>
+            </div>`; 
+            }
+            if (player.Rank != 1 && player.Rank != 2 && player.Rank != 3) {
+                leaderboard.innerHTML += `<div class="leaderboard-slot" onclick="openPlayerStats('${player.Username}', ${playerScore}, ${player.Rank})">
+                <div class="leaderboard-ranking">${player.Rank}</div>
+                <img class="player-image" src="https://render.crafty.gg/3d/bust/${player.Username}" alt="${player.Username} bust">
+                <div class="points-badge-and-name">
+                    <div class="username">${player.Username}</div>
+                    <div class="player-title" style="color: ${playerTitle.color};">${playerTitle.title}<span style="color: rgb(153, 153, 153); font-weight: normal;">(${playerScore} points)</span></div>
+                </div>
+                <div class="gamemode-tiers">
+                    <div id="sword-gamemode">
+                        <div class="img-border" style="border: solid 2px ${getTierColor(player.tiers.Sword)}; box-shadow: 0 0 3px ${getTierColor(player.tiers.Sword)};"><img class="gamemode-image-player" src="Assets/Diamond_Sword.png" alt="diamond sword"></div>
+                        <div class="gamemode-type" style="background-color: ${getTierColor(player.tiers.Sword)};">${player.tiers.Sword}</div>
+                    </div>
+                    <div id="axe-gamemode">
+                        <div class="img-border" style="border: solid 2px ${getTierColor(player.tiers.Axe)}; box-shadow: 0 0 3px ${getTierColor(player.tiers.Axe)};"><img class="gamemode-image-player" src="Assets/Diamond_Axe.png" alt="diamond axe"></div>
+                        <div class="gamemode-type" style="background-color: ${getTierColor(player.tiers.Axe)};">${player.tiers.Axe}</div>
+                    </div>
+                    <div id="uhc-gamemode">
+                        <div class="img-border" style="border: solid 2px ${getTierColor(player.tiers.UHC)}; box-shadow: 0 0 3px ${getTierColor(player.tiers.UHC)};"><img class="gamemode-image-player" src="Assets/Lava_Bucket.png" alt="diamond axe"></div>
+                        <div class="gamemode-type" style="background-color: ${getTierColor(player.tiers.UHC)};">${player.tiers.UHC}</div>
+                    </div>
+                    <div id="vanilla-gamemode">
+                        <div class="img-border" style="border: solid 2px ${getTierColor(player.tiers.Vanilla)}; box-shadow: 0 0 3px ${getTierColor(player.tiers.Vanilla)};"><img class="gamemode-image-player" src="Assets/End_Crystal.png" alt="end crystal"></div>
+                        <div class="gamemode-type" style="background-color: ${getTierColor(player.tiers.Vanilla)};">${player.tiers.Vanilla}</div>
+                    </div>
+                    <div id="mace-gamemode">
+                        <div class="img-border" style="border: solid 2px ${getTierColor(player.tiers.Mace)}; box-shadow: 0 0 3px ${getTierColor(player.tiers.Mace)};"><img class="gamemode-image-player" src="Assets/Mace.png" alt="mace"></div>
+                        <div class="gamemode-type" style="background-color: ${getTierColor(player.tiers.Mace)};">${player.tiers.Mace}</div>
+                    </div>
+                    <div id="smp-gamemode">
+                        <div class="img-border" style="border: solid 2px ${getTierColor(player.tiers.SMP)}; box-shadow: 0 0 3px ${getTierColor(player.tiers.SMP)};"><img class="gamemode-image-player" src="Assets/Shield.png" alt="shield"></div>
+                        <div class="gamemode-type" style="background-color: ${getTierColor(player.tiers.SMP)};">${player.tiers.SMP}</div>
+                    </div>
+                    <div id="dia-pot-gamemode">
+                        <div class="img-border" style="border: solid 2px ${getTierColor(player.tiers.Diamond_pot)}; box-shadow: 0 0 3px ${getTierColor(player.tiers.Diamond_pot)};"><img class="gamemode-image-player" src="Assets/Potion_Healing.png" alt="potion"></div>
+                        <div class="gamemode-type" style="background-color: ${getTierColor(player.tiers.Diamond_pot)};">${player.tiers.Diamond_pot}</div>
+                    </div>
+                    <div id="neth-pot-gamemode">
+                        <div class="img-border" style="border: solid 2px ${getTierColor(player.tiers.Netherite_pot)}; box-shadow: 0 0 3px ${getTierColor(player.tiers.Netherite_pot)};"><img class="gamemode-image-player" src="Assets/Netherite_Helmet.png" alt="netherite helmet"></div>
+                        <div class="gamemode-type" style="background-color: ${getTierColor(player.tiers.Netherite_pot)};">${player.tiers.Netherite_pot}</div>
+                    </div>
+                </div>
+            </div>`;
+            }
+
+            console.log(player.Rank);
+        }
+    }
+
+    async function fetchData() {
+        const res = await fetch("players.json");
+        const data = await res.json();
+        return data;
+    }
+
+    function displayInfo() {
+        document.getElementById('info-floater').style.display = 'block';
+        document.getElementById('floater-background').style.display = 'inline';
+        document.getElementById('info-floater').style.opacity = '1';
+        disableScroll();
+    }
+
+    function hideInfo() {
+        document.getElementById('info-floater').style.display = 'none';
+        document.getElementById('floater-background').style.display = 'none';
+        document.getElementById('info-floater-points').style.display = 'none';
+        enableScroll()
+    }
+
+    function switchToTitles() {
+         document.getElementById('info-floater').style.display = 'block';
+        document.getElementById('info-floater-points').style.display = 'none';
+    }
+
+    function switchToPoints() {
+        document.getElementById('info-floater-points').style.display = 'block';
+        document.getElementById('info-floater').style.display = 'none';
+    }
+
+    function calculateScore(player) {
+        return Object.values(player.tiers)
+            .reduce((total, tier) => total + (tierPoints[tier] || 0), 0);
+    }
+
+    function getTitle(score) {
+        let current = titles[0];
+
+        for (const t of titles) {
+            if (score >= t.minScore) {
+                current = t;
+            } else {
+                break;
+            }
+        }
+
+        return current;
+    }
+
+    function getTierColor(tier, playerTitle) {
+        if (!tier) return "var(--unranked)";
+        return `var(--${tier})`;
+    }
+
+    function hidePlayerStats() {
+        document.getElementById('floater-background').style.display = 'none';
+        document.getElementById('player-stats').remove();
+
+        enableScroll();
+    }
+
+    function disableScroll() {
+        document.body.style.overflow = "hidden";
+    }
+
+    function enableScroll() {
+        document.body.style.overflow = "auto";
+    }
+
+    async function openPlayerStats(id, score, rank) {
+        const json = await fetchData();
+        const player = json.find(p => p.Username === id);
+        document.getElementById('info-floater').style.display = 'none';
+        document.getElementById('floater-background').style.display = 'inline';
+        document.getElementById('info-floater-points').style.display = 'none';
+
+        console.log(score);
+
+        const playerTitle = getTitle(score);
+
+        console.log(playerTitle);
+
+        disableScroll();
+
+        document.getElementById('floater-container').innerHTML += `<div class="floating" id="player-stats">
+                <img class="player-circ-image" src="https://render.crafty.gg/3d/bust/${player.Username}" alt="${player.Username} bust">
+                <div class="username-stats">${player.Username}</div>
+                <div class="title-stats" style="color: ${playerTitle.color};">${playerTitle.title}</div>
+                <span class="position-title">POSITION</span>
+                <div class="position-on-leaderboard-wrapper">
+                    <div class="overall-text">OVERALL:</div>
+                    <div class="position-on-leaderboard">#${rank}</div>
+                    <span style="color: grey; font-weight: normal; font-size: 1.5vw; margin-left: 0.25vw;">(${score} points)</span>
+                </div>
+                <div class="tiers-stats-title"><span>TIERS</span></div>
+                <div class="tiers-stats">
+                    <div class="gamemode-tiers-stats">
+                        <div id="sword-gamemode">
+                            <div class="img-border" style="border: solid 2px ${getTierColor(player.tiers.Sword)}; box-shadow: 0 0 3px ${getTierColor(player.tiers.Sword)};"><img class="gamemode-image-player" src="Assets/Diamond_Sword.png" alt="diamond sword"></div>
+                            <div class="gamemode-type" style="background-color: ${getTierColor(player.tiers.Sword)};">${player.tiers.Sword}</div>
+                        </div>
+                        <div id="axe-gamemode">
+                            <div class="img-border" style="border: solid 2px ${getTierColor(player.tiers.Axe)}; box-shadow: 0 0 3px ${getTierColor(player.tiers.Axe)};"><img class="gamemode-image-player" src="Assets/Diamond_Axe.png" alt="diamond axe"></div>
+                            <div class="gamemode-type" style="background-color: ${getTierColor(player.tiers.Axe)};">${player.tiers.Axe}</div>
+                        </div>
+                        <div id="uhc-gamemode">
+                            <div class="img-border" style="border: solid 2px ${getTierColor(player.tiers.UHC)}; box-shadow: 0 0 3px ${getTierColor(player.tiers.UHC)};"><img class="gamemode-image-player" src="Assets/Lava_Bucket.png" alt="diamond axe"></div>
+                            <div class="gamemode-type" style="background-color: ${getTierColor(player.tiers.UHC)};">${player.tiers.UHC}</div>
+                        </div>
+                        <div id="vanilla-gamemode">
+                            <div class="img-border" style="border: solid 2px ${getTierColor(player.tiers.Vanilla)}; box-shadow: 0 0 3px ${getTierColor(player.tiers.Vanilla)};"><img class="gamemode-image-player" src="Assets/End_Crystal.png" alt="end crystal"></div>
+                            <div class="gamemode-type" style="background-color: ${getTierColor(player.tiers.Vanilla)};">${player.tiers.Vanilla}</div>
+                        </div>
+                        <div id="mace-gamemode">
+                            <div class="img-border" style="border: solid 2px ${getTierColor(player.tiers.Mace)}; box-shadow: 0 0 3px ${getTierColor(player.tiers.Mace)};"><img class="gamemode-image-player" src="Assets/Mace.png" alt="mace"></div>
+                            <div class="gamemode-type" style="background-color: ${getTierColor(player.tiers.Mace)};">${player.tiers.Mace}</div>
+                        </div>
+                        <div id="smp-gamemode">
+                            <div class="img-border" style="border: solid 2px ${getTierColor(player.tiers.SMP)}; box-shadow: 0 0 3px ${getTierColor(player.tiers.SMP)};"><img class="gamemode-image-player" src="Assets/Shield.png" alt="shield"></div>
+                            <div class="gamemode-type" style="background-color: ${getTierColor(player.tiers.SMP)};">${player.tiers.SMP}</div>
+                        </div>
+                        <div id="dia-pot-gamemode">
+                            <div class="img-border" style="border: solid 2px ${getTierColor(player.tiers.Diamond_pot)}; box-shadow: 0 0 3px ${getTierColor(player.tiers.Diamond_pot)};"><img class="gamemode-image-player" src="Assets/Potion_Healing.png" alt="potion"></div>
+                            <div class="gamemode-type" style="background-color: ${getTierColor(player.tiers.Diamond_pot)};">${player.tiers.Diamond_pot}</div>
+                        </div>
+                        <div id="neth-pot-gamemode">
+                            <div class="img-border" style="border: solid 2px ${getTierColor(player.tiers.Netherite_pot)}; box-shadow: 0 0 3px ${getTierColor(player.tiers.Netherite_pot)};"><img class="gamemode-image-player" src="Assets/Netherite_Helmet.png" alt="netherite helmet"></div>
+                            <div class="gamemode-type" style="background-color: ${getTierColor(player.tiers.Netherite_pot)};">${player.tiers.Netherite_pot}</div>
+                        </div>
+                    </div>
+                </div>
+                </div>`;
+    }
+</script>
+</html>
