@@ -306,9 +306,9 @@
     async function openPlayerStats(id, score, rank) {
         const json = await fetchData();
         const player = json.find(p => p.Username === id);
-        document.getElementById('info-floater').style.display = 'none';
+        document.getElementById('info-floater').style.visibility = 'hidden';
         document.getElementById('floater-background').style.display = 'inline';
-        document.getElementById('info-floater-points').style.display = 'none';
+        document.getElementById('info-floater-points').style.visibility = 'hidden';
 
         console.log(score);
 
