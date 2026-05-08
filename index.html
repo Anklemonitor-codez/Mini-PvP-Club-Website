@@ -236,7 +236,12 @@
     }
 
     async function fetchData() {
-        const res = await fetch("players.json?t=${Date.now()}");
+        const res = await fetch(
+            `players.json?nocache=${Date.now()}`,
+            {
+                cache: "no-store"
+            }
+        );
         const data = await res.json();
         return data;
     }
