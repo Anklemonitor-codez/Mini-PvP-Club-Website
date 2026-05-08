@@ -1,6 +1,6 @@
 [
   {
-    "Username":"JoyFlux",
+    "Username": "JoyFlux",
     "tiers": {
       "Sword": "LT4",
       "Diamond_pot": "LT5",
@@ -14,7 +14,7 @@
     "Rank": ""
   },
   {
-    "Username":"Imshadowss",
+    "Username": "Imshadowss",
     "tiers": {
       "Sword": "LT3",
       "Diamond_pot": "LT5",
@@ -28,7 +28,7 @@
     "Rank": ""
   },
   {
-    "Username":"UselessKeyboard",
+    "Username": "UselessKeyboard",
     "tiers": {
       "Sword": "LT4",
       "Diamond_pot": "---",
@@ -42,7 +42,7 @@
     "Rank": ""
   },
   {
-    "Username":"Shadowkill1",
+    "Username": "Shadowkill1",
     "tiers": {
       "Sword": "LT4",
       "Diamond_pot": "LT4",
@@ -52,6 +52,20 @@
       "UHC": "LT4",
       "Mace": "---",
       "SMP": "LT4"
+    },
+    "Rank": ""
+  },
+  {
+    "Username": "ShadowBlade28",
+    "tiers": {
+      "Sword": "LT5",
+      "Diamond_pot": "---",
+      "Netherite_pot": "HT4",
+      "Axe": "LT5",
+      "Vanilla": "---",
+      "UHC": "LT5",
+      "Mace": "---",
+      "SMP": "---"
     },
     "Rank": ""
   }
