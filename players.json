@@ -3,13 +3,13 @@
     "Username":"JoyFlux",
     "tiers": {
       "Sword": "LT4",
-      "Diamond_pot": "---",
-      "Netherite_pot": "---",
+      "Diamond_pot": "LT5",
+      "Netherite_pot": "HT5",
       "Axe": "LT4",
       "Vanilla": "HT5",
-      "UHC": "---",
-      "Mace": "---",
-      "SMP": "---"
+      "UHC": "LT4",
+      "Mace": "HT5",
+      "SMP": "HT5"
     },
     "Rank": ""
   },
@@ -21,7 +21,7 @@
       "Netherite_pot": "HT5",
       "Axe": "---",
       "Vanilla": "LT4",
-      "UHC": "---",
+      "UHC": "HT5",
       "Mace": "HT5",
       "SMP": "LT4"
     },
