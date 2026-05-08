@@ -56,7 +56,7 @@
     "Rank": ""
   },
   {
-    "Username":"Evokiry",
+    "Username": "Evokiry",
     "tiers": {
       "Sword": "---",
       "Diamond_pot": "---",
@@ -79,6 +79,20 @@
       "Vanilla": "LT4",
       "UHC": "---",
       "Mace": "LT4",
+      "SMP": "---"
+    },
+    "Rank": ""
+  },
+  {
+    "Username": "test",
+    "tiers": {
+      "Sword": "---",
+      "Diamond_pot": "---",
+      "Netherite_pot": "LT5",
+      "Axe": "---",
+      "Vanilla": "---",
+      "UHC": "---",
+      "Mace": "---",
       "SMP": "---"
     },
     "Rank": ""
