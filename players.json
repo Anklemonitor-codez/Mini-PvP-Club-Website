@@ -82,5 +82,19 @@
       "SMP": "---"
     },
     "Rank": ""
+  },
+  {
+    "Username": "username",
+    "tiers": {
+      "Sword": "sword-tier",
+      "Diamond_pot": "pot-tier",
+      "Netherite_pot": "neth-pot-tier",
+      "Axe": "axe-tier",
+      "Vanilla": "vanilla-tier",
+      "UHC": "uhc-tier",
+      "Mace": "mace-tier",
+      "SMP": "smp-tier"
+    },
+    "Rank": ""
   }
 ]
