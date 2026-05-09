@@ -86,14 +86,14 @@
   {
     "Username": "RealExternalEra",
     "tiers": {
-      "Sword": "sword-tier",
-      "Diamond_pot": "pot-tier",
+      "Sword": "---",
+      "Diamond_pot": "---",
       "Netherite_pot": "HT5",
-      "Axe": "axe-tier",
-      "Vanilla": "vanilla-tier",
-      "UHC": "uhc-tier",
-      "Mace": "mace-tier",
-      "SMP": "smp-tier"
+      "Axe": "---",
+      "Vanilla": "---",
+      "UHC": "---",
+      "Mace": "---",
+      "SMP": "---"
     },
     "Rank": ""
   }
