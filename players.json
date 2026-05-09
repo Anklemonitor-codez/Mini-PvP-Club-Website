@@ -88,7 +88,7 @@
     "tiers": {
       "Sword": "sword-tier",
       "Diamond_pot": "pot-tier",
-      "Netherite_pot": "neth-pot-tier",
+      "Netherite_pot": "HT5",
       "Axe": "axe-tier",
       "Vanilla": "vanilla-tier",
       "UHC": "uhc-tier",
