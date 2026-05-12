@@ -301,7 +301,7 @@
     }
 
     function getTierColor(tier, playerTitle) {
-        if (!tier) return "var(--unranked)";
+        if (tier == "---") return `var(--unranked)`;
         return `var(--${tier})`;
     }
 
