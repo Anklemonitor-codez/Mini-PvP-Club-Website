@@ -16,7 +16,7 @@
     --LT4: rgb(53, 46, 63);
     --HT5: rgb(55, 38, 82);
     --LT5: rgb(53, 46, 63);
-    --unranked: gray;
+    --unranked: rgb(59, 104, 53);
     --playerSlotTransitionDistance: -40px;
     --floaterColor: rgb(36, 35, 49);
 }
@@ -144,7 +144,7 @@ body {
     border-radius: 15px;
     box-shadow: 0 0 5px gold;
     align-self: center;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
     cursor: pointer;
     transition: transform 0.2s;
     z-index: 8;
@@ -180,7 +180,7 @@ body {
     border-radius: 15px;
     box-shadow: 0 0 5px rgb(170, 169, 168);
     align-self: center;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
     cursor: pointer;
     transition: transform 0.2s;
     z-index: 8;
@@ -216,7 +216,7 @@ body {
     border-radius: 15px;
     box-shadow: 0 0 5px rgb(199, 107, 2);
     align-self: center;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
     cursor: pointer;
     transition: transform 0.2s;
     z-index: 8;
@@ -252,7 +252,7 @@ body {
     align-items: center;
     border-radius: 15px;
     align-self: center;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
     cursor: pointer;
     transition: transform 0.2s;
     z-index: 8;
@@ -693,7 +693,7 @@ body {
 
 #made-by-ankle-monitor {
     color: white;
-    font-size: 1vw;
+    font-size: 20px;
 }
 
 #skins-via {
@@ -757,6 +757,19 @@ body {
 #extra-info {
     font-size: 1.2vw; 
     width: 100%;
+}
+
+#copyright-info-link {
+    text-decoration: none;
+    color: white;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    font-size: 15px;
+}
+
+#copyright-info-link:hover {
+    color: rgb(21, 75, 250);
+    text-decoration: underline;
 }
 
 @media (max-width: 800px){
