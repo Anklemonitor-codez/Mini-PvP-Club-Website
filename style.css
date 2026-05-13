@@ -54,7 +54,7 @@ body {
 }
 
 .header {
-    background-color: rgba(5, 70, 16, 0.521);
+    background-color: rgba(5, 70, 16, 0.514);
     padding: 15px 20px;
     box-shadow: 0px 0px 20px rgb(4, 43, 4);
     display: grid;
@@ -66,6 +66,7 @@ body {
     filter: drop-shadow();
     margin-left: auto;
     margin-right: auto;
+    margin-top: 7px;
 }
 
 #brand-link {
@@ -514,6 +515,7 @@ body {
     text-align: center;
     font-weight: bold;
     margin-right: 10px;
+    cursor: pointer;
 }
 
 .gamemode-tiers {
@@ -812,6 +814,30 @@ body {
 .material-symbols-outlined {
     color: black !important;
     font-weight: bold !important;
+}
+
+.tooltip {
+    position: fixed;
+    padding: 6px 10px;
+    background: rgba(0, 0, 0, 0.85);
+    color: white;
+    font-size: 12px;
+    border-radius: 6px;
+    pointer-events: none;
+    z-index: 9999;
+    white-space: nowrap;
+    opacity: 0;
+    transform: translateY(5px);
+    transform: translateX(-50%);
+    white-space: normal;
+}
+
+.tooltip.show {
+    transition: opacity 0.15s ease, transform 0.25s ease;
+
+    opacity: 1;
+
+    transform: translate(-50%, -100%);
 }
 
 @keyframes shine {
