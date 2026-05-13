@@ -19,12 +19,21 @@
     --unranked: rgb(59, 104, 53);
     --playerSlotTransitionDistance: -40px;
     --floaterColor: rgb(36, 35, 49);
+    --bgColor: rgb(7, 65, 12);
+    --accentColor1: rgb(17, 21, 255);
+    --accentColor2: rgb(5, 73, 31);
+    --accentColor3: rgb(100, 98, 11);
+    --accentColor4: rgb(21, 56, 6);
+    --firstColor: gold;
+    --secondColor: rgb(160, 159, 159);
+    --thirdColor: rgb(223, 135, 3);
+    --fourthColor: rgb(4, 99, 20);
 }
 
 body {
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     min-height: 100vh;
-    background: rgb(2, 68, 24);
+    background: var(--bgColor);
     margin: 0;
     overflow-x: hidden;
 }
@@ -39,19 +48,24 @@ body {
     height: 600px;
     background: rgb(0, 0, 0);
     border-radius: 50%;
-    filter: blur(150px);
+    filter: blur(100px);
     opacity: 0.5;
     z-index: -1;
 }
 
 .header {
-    background-color: rgba(4, 80, 4, 0.521);
+    background-color: rgba(5, 70, 16, 0.521);
     padding: 15px 20px;
-
+    box-shadow: 0px 0px 20px rgb(4, 43, 4);
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     align-items: center;
     overflow-x: hidden;
+    width: 85vw;
+    border-radius: 16px;
+    filter: drop-shadow();
+    margin-left: auto;
+    margin-right: auto;
 }
 
 #brand-link {
@@ -117,6 +131,7 @@ body {
     font-weight: bolder;
     font-size: 30px;
     padding-left: 1.2vw;
+    text-shadow: 0 0 5px black;
 }
 
 .sub-item {
@@ -149,6 +164,9 @@ body {
     transition: transform 0.2s;
     z-index: 8;
     flex-wrap: wrap;
+    overflow: hidden;
+    isolation: isolate;
+    position: relative;
 }
 
 .leaderboard-slot-1:hover {
@@ -156,8 +174,7 @@ body {
     background: linear-gradient(100deg,#ffa93a6b,#ffd46b4d 18%,#ffd46b00 32%),rgb(35, 83, 20);
 }
 
-.leaderboard-ranking-1 {
-    background-color: gold;
+.leaderboard-ranking {
     box-shadow: 0 0 5px rgb(34, 26, 5);
     width: 100px;
     height: 100px;
@@ -167,9 +184,12 @@ body {
     line-height: 100px;
     font-size: 50px;
     font-weight: bold;
-    color: rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
+    text-shadow: 1.6px 3px 2px rgb(0, 0, 0);
     margin: 15px;
     margin-right: 2.5vw;
+    font-style: italic;
+    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 }
 
 .leaderboard-slot-2 {
@@ -185,22 +205,8 @@ body {
     transition: transform 0.2s;
     z-index: 8;
     flex-wrap: wrap;
-}
-
-.leaderboard-ranking-2 {
-    background-color: rgb(160, 159, 159);
-    box-shadow: 0 0 5px rgb(34, 26, 5);
-    width: 100px;
-    height: 100px;
-    border-radius: 17px;
-    text-align: center;
-    vertical-align: center;
-    line-height: 100px;
-    font-size: 50px;
-    font-weight: bold;
-    color: rgb(0, 0, 0);
-    margin: 15px;
-    margin-right: 2.5vw;
+    position: relative;
+    overflow: hidden;
 }
 
 .leaderboard-slot-2:hover {
@@ -221,23 +227,8 @@ body {
     transition: transform 0.2s;
     z-index: 8;
     flex-wrap: wrap;
-}
-
-.leaderboard-ranking-3 {
-    background-color: rgb(223, 135, 3);
-    box-shadow: 0 0 5px rgb(34, 26, 5);
-    width: 100px;
-    height: 100px;
-    border-radius: 17px;
-    text-align: center;
-    vertical-align: center;
-    line-height: 100px;
-    font-size: 50px;
-    font-weight: bold;
-    color: rgb(0, 0, 0);
-    margin: 15px;
-    margin-right: 2.5vw;
-    
+    position: relative;
+    overflow: hidden;
 }
 
 .leaderboard-slot-3:hover {
@@ -264,26 +255,11 @@ body {
     background: linear-gradient(100deg,#1a680b6b,#026b074d 18%,#c28d0600 32%),rgb(35, 83, 20);
 }
 
-.leaderboard-ranking {
-    background-color: rgb(4, 99, 20);
-    box-shadow: 0 0 5px rgb(34, 26, 5);
-    width: 100px;
-    height: 100px;
-    border-radius: 17px;
-    text-align: center;
-    vertical-align: center;
-    line-height: 100px;
-    font-size: 50px;
-    font-weight: bold;
-    color: rgb(0, 0, 0);
-    margin: 15px;
-    margin-right: 2.5vw;
-}
-
 .player-image {
     width: 90px;
     height: 90px;
     margin-right: 2vw;
+    filter: drop-shadow(-4px 4px 4px);
 }
 
 .points-badge-and-name {
@@ -770,6 +746,84 @@ body {
 #copyright-info-link:hover {
     color: rgb(21, 75, 250);
     text-decoration: underline;
+}
+
+.leaderboard-slot-1::before {
+    content: '';
+    position: absolute;
+    height: 250%;
+    width: 40px;
+    top: 0;
+    left: -60px;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+    transform: rotate(45deg) translateY(-35%);
+    animation: shine 5s ease infinite;
+}
+
+.leaderboard-slot-2::before {
+    content: '';
+    position: absolute;
+    height: 250%;
+    width: 40px;
+    top: 0;
+    left: -60px;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+    transform: rotate(45deg) translateY(-35%);
+    animation: shine 5s ease infinite;
+}
+
+.leaderboard-slot-3::before {
+    content: '';
+    position: absolute;
+    height: 250%;
+    width: 40px;
+    top: 0;
+    left: -60px;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+    transform: rotate(45deg) translateY(-35%);
+    animation: shine 5s ease infinite;
+}
+
+.namemc {
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+    background-color: rgb(55, 59, 82);
+    padding:  7px 10px;
+    border-radius: 15px;
+    align-items: center;
+    color: rgb(151, 150, 150);
+    margin-top: 10px;
+    margin-bottom: 7px;
+}
+
+.namemc:hover {
+    color: white;
+}
+
+#namemc-link {
+    text-decoration: none;
+}
+
+.namemc img {
+    border-radius: 5px;
+}
+
+.material-symbols-outlined {
+    color: black !important;
+    font-weight: bold !important;
+}
+
+@keyframes shine {
+  0% {
+    left: -80px;
+  }
+  40% {
+    left: calc(100% + 20px);
+  }
+  100% {
+    left: calc(100% + 20px);
+  }
 }
 
 @media (max-width: 800px){
