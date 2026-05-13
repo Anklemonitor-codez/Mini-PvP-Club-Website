@@ -210,35 +210,35 @@ const tierPoints = {
                     <div class="player-title" style="color: ${playerTitle.color};">${playerTitle.title}<span style="color: rgb(153, 153, 153); font-weight: normal;">(${playerScore} points)</span></div>
                 </div>
                 <div class="gamemode-tiers">
-                    <div id="sword-gamemode">
+                    <div id="sword-gamemode" data-tooltip="Sword&#10; ${player.tiers.Sword}">
                         <div class="img-border" style="border: solid 2px ${getTierColor(player.tiers.Sword)}; box-shadow: 0 0 3px ${getTierColor(player.tiers.Sword)};"><img class="gamemode-image-player" src="Assets/Diamond_Sword.png" alt="diamond sword"></div>
                         <div class="gamemode-type" style="background-color: ${getTierColor(player.tiers.Sword)};">${player.tiers.Sword}</div>
                     </div>
-                    <div id="axe-gamemode">
+                    <div id="axe-gamemode" data-tooltip="Axe ${player.tiers.Axe}">
                         <div class="img-border" style="border: solid 2px ${getTierColor(player.tiers.Axe)}; box-shadow: 0 0 3px ${getTierColor(player.tiers.Axe)};"><img class="gamemode-image-player" src="Assets/Diamond_Axe.png" alt="diamond axe"></div>
                         <div class="gamemode-type" style="background-color: ${getTierColor(player.tiers.Axe)};">${player.tiers.Axe}</div>
                     </div>
-                    <div id="uhc-gamemode">
+                    <div id="uhc-gamemode" data-tooltip="UHC ${player.tiers.UHC}">
                         <div class="img-border" style="border: solid 2px ${getTierColor(player.tiers.UHC)}; box-shadow: 0 0 3px ${getTierColor(player.tiers.UHC)};"><img class="gamemode-image-player" src="Assets/Lava_Bucket.png" alt="diamond axe"></div>
                         <div class="gamemode-type" style="background-color: ${getTierColor(player.tiers.UHC)};">${player.tiers.UHC}</div>
                     </div>
-                    <div id="vanilla-gamemode">
+                    <div id="vanilla-gamemode" data-tooltip="Vanilla ${player.tiers.Vanilla}">
                         <div class="img-border" style="border: solid 2px ${getTierColor(player.tiers.Vanilla)}; box-shadow: 0 0 3px ${getTierColor(player.tiers.Vanilla)};"><img class="gamemode-image-player" src="Assets/End_Crystal.png" alt="end crystal"></div>
                         <div class="gamemode-type" style="background-color: ${getTierColor(player.tiers.Vanilla)};">${player.tiers.Vanilla}</div>
                     </div>
-                    <div id="mace-gamemode">
+                    <div id="mace-gamemode" data-tooltip="Mace ${player.tiers.Mace}">
                         <div class="img-border" style="border: solid 2px ${getTierColor(player.tiers.Mace)}; box-shadow: 0 0 3px ${getTierColor(player.tiers.Mace)};"><img class="gamemode-image-player" src="Assets/Mace.png" alt="mace"></div>
                         <div class="gamemode-type" style="background-color: ${getTierColor(player.tiers.Mace)};">${player.tiers.Mace}</div>
                     </div>
-                    <div id="smp-gamemode">
+                    <div id="smp-gamemode" data-tooltip="SMP ${player.tiers.SMP}">
                         <div class="img-border" style="border: solid 2px ${getTierColor(player.tiers.SMP)}; box-shadow: 0 0 3px ${getTierColor(player.tiers.SMP)};"><img class="gamemode-image-player" src="Assets/Shield.png" alt="shield"></div>
                         <div class="gamemode-type" style="background-color: ${getTierColor(player.tiers.SMP)};">${player.tiers.SMP}</div>
                     </div>
-                    <div id="dia-pot-gamemode">
+                    <div id="dia-pot-gamemode" data-tooltip="Pot ${player.tiers.Diamond_pot}">
                         <div class="img-border" style="border: solid 2px ${getTierColor(player.tiers.Diamond_pot)}; box-shadow: 0 0 3px ${getTierColor(player.tiers.Diamond_pot)};"><img class="gamemode-image-player" src="Assets/Potion_Healing.png" alt="potion"></div>
                         <div class="gamemode-type" style="background-color: ${getTierColor(player.tiers.Diamond_pot)};">${player.tiers.Diamond_pot}</div>
                     </div>
-                    <div id="neth-pot-gamemode">
+                    <div id="neth-pot-gamemode" data-tooltip="Neth Pot ${player.tiers.Netherite_pot}">
                         <div class="img-border" style="border: solid 2px ${getTierColor(player.tiers.Netherite_pot)}; box-shadow: 0 0 3px ${getTierColor(player.tiers.Netherite_pot)};"><img class="gamemode-image-player" src="Assets/Netherite_Helmet.png" alt="netherite helmet"></div>
                         <div class="gamemode-type" style="background-color: ${getTierColor(player.tiers.Netherite_pot)};">${player.tiers.Netherite_pot}</div>
                     </div>
@@ -255,35 +255,35 @@ const tierPoints = {
                     <div class="player-title" style="color: ${playerTitle.color};">${playerTitle.title}<span style="color: rgb(153, 153, 153); font-weight: normal;">(${playerScore} points)</span></div>
                 </div>
                 <div class="gamemode-tiers">
-                    <div id="sword-gamemode">
+                    <div id="sword-gamemode" data-tooltip="Sword&#10; ${player.tiers.Sword}">
                         <div class="img-border" style="border: solid 2px ${getTierColor(player.tiers.Sword)}; box-shadow: 0 0 3px ${getTierColor(player.tiers.Sword)};"><img class="gamemode-image-player" src="Assets/Diamond_Sword.png" alt="diamond sword"></div>
                         <div class="gamemode-type" style="background-color: ${getTierColor(player.tiers.Sword)};">${player.tiers.Sword}</div>
                     </div>
-                    <div id="axe-gamemode">
+                    <div id="axe-gamemode" data-tooltip="Axe ${player.tiers.Axe}">
                         <div class="img-border" style="border: solid 2px ${getTierColor(player.tiers.Axe)}; box-shadow: 0 0 3px ${getTierColor(player.tiers.Axe)};"><img class="gamemode-image-player" src="Assets/Diamond_Axe.png" alt="diamond axe"></div>
                         <div class="gamemode-type" style="background-color: ${getTierColor(player.tiers.Axe)};">${player.tiers.Axe}</div>
                     </div>
-                    <div id="uhc-gamemode">
+                    <div id="uhc-gamemode" data-tooltip="UHC ${player.tiers.UHC}">
                         <div class="img-border" style="border: solid 2px ${getTierColor(player.tiers.UHC)}; box-shadow: 0 0 3px ${getTierColor(player.tiers.UHC)};"><img class="gamemode-image-player" src="Assets/Lava_Bucket.png" alt="diamond axe"></div>
                         <div class="gamemode-type" style="background-color: ${getTierColor(player.tiers.UHC)};">${player.tiers.UHC}</div>
                     </div>
-                    <div id="vanilla-gamemode">
+                    <div id="vanilla-gamemode" data-tooltip="Vanilla ${player.tiers.Vanilla}">
                         <div class="img-border" style="border: solid 2px ${getTierColor(player.tiers.Vanilla)}; box-shadow: 0 0 3px ${getTierColor(player.tiers.Vanilla)};"><img class="gamemode-image-player" src="Assets/End_Crystal.png" alt="end crystal"></div>
                         <div class="gamemode-type" style="background-color: ${getTierColor(player.tiers.Vanilla)};">${player.tiers.Vanilla}</div>
                     </div>
-                    <div id="mace-gamemode">
+                    <div id="mace-gamemode" data-tooltip="Mace ${player.tiers.Mace}">
                         <div class="img-border" style="border: solid 2px ${getTierColor(player.tiers.Mace)}; box-shadow: 0 0 3px ${getTierColor(player.tiers.Mace)};"><img class="gamemode-image-player" src="Assets/Mace.png" alt="mace"></div>
                         <div class="gamemode-type" style="background-color: ${getTierColor(player.tiers.Mace)};">${player.tiers.Mace}</div>
                     </div>
-                    <div id="smp-gamemode">
+                    <div id="smp-gamemode" data-tooltip="SMP ${player.tiers.SMP}">
                         <div class="img-border" style="border: solid 2px ${getTierColor(player.tiers.SMP)}; box-shadow: 0 0 3px ${getTierColor(player.tiers.SMP)};"><img class="gamemode-image-player" src="Assets/Shield.png" alt="shield"></div>
                         <div class="gamemode-type" style="background-color: ${getTierColor(player.tiers.SMP)};">${player.tiers.SMP}</div>
                     </div>
-                    <div id="dia-pot-gamemode">
+                    <div id="dia-pot-gamemode" data-tooltip="Pot ${player.tiers.Diamond_pot}">
                         <div class="img-border" style="border: solid 2px ${getTierColor(player.tiers.Diamond_pot)}; box-shadow: 0 0 3px ${getTierColor(player.tiers.Diamond_pot)};"><img class="gamemode-image-player" src="Assets/Potion_Healing.png" alt="potion"></div>
                         <div class="gamemode-type" style="background-color: ${getTierColor(player.tiers.Diamond_pot)};">${player.tiers.Diamond_pot}</div>
                     </div>
-                    <div id="neth-pot-gamemode">
+                    <div id="neth-pot-gamemode" data-tooltip="Neth Pot ${player.tiers.Netherite_pot}">
                         <div class="img-border" style="border: solid 2px ${getTierColor(player.tiers.Netherite_pot)}; box-shadow: 0 0 3px ${getTierColor(player.tiers.Netherite_pot)};"><img class="gamemode-image-player" src="Assets/Netherite_Helmet.png" alt="netherite helmet"></div>
                         <div class="gamemode-type" style="background-color: ${getTierColor(player.tiers.Netherite_pot)};">${player.tiers.Netherite_pot}</div>
                     </div>
@@ -300,35 +300,35 @@ const tierPoints = {
                     <div class="player-title" style="color: ${playerTitle.color};">${playerTitle.title}<span style="color: rgb(153, 153, 153); font-weight: normal;">(${playerScore} points)</span></div>
                 </div>
                 <div class="gamemode-tiers">
-                    <div id="sword-gamemode">
+                    <div id="sword-gamemode" data-tooltip="Sword&#10; ${player.tiers.Sword}">
                         <div class="img-border" style="border: solid 2px ${getTierColor(player.tiers.Sword)}; box-shadow: 0 0 3px ${getTierColor(player.tiers.Sword)};"><img class="gamemode-image-player" src="Assets/Diamond_Sword.png" alt="diamond sword"></div>
                         <div class="gamemode-type" style="background-color: ${getTierColor(player.tiers.Sword)};">${player.tiers.Sword}</div>
                     </div>
-                    <div id="axe-gamemode">
+                    <div id="axe-gamemode" data-tooltip="Axe ${player.tiers.Axe}">
                         <div class="img-border" style="border: solid 2px ${getTierColor(player.tiers.Axe)}; box-shadow: 0 0 3px ${getTierColor(player.tiers.Axe)};"><img class="gamemode-image-player" src="Assets/Diamond_Axe.png" alt="diamond axe"></div>
                         <div class="gamemode-type" style="background-color: ${getTierColor(player.tiers.Axe)};">${player.tiers.Axe}</div>
                     </div>
-                    <div id="uhc-gamemode">
+                    <div id="uhc-gamemode" data-tooltip="UHC ${player.tiers.UHC}">
                         <div class="img-border" style="border: solid 2px ${getTierColor(player.tiers.UHC)}; box-shadow: 0 0 3px ${getTierColor(player.tiers.UHC)};"><img class="gamemode-image-player" src="Assets/Lava_Bucket.png" alt="diamond axe"></div>
                         <div class="gamemode-type" style="background-color: ${getTierColor(player.tiers.UHC)};">${player.tiers.UHC}</div>
                     </div>
-                    <div id="vanilla-gamemode">
+                    <div id="vanilla-gamemode" data-tooltip="Vanilla ${player.tiers.Vanilla}">
                         <div class="img-border" style="border: solid 2px ${getTierColor(player.tiers.Vanilla)}; box-shadow: 0 0 3px ${getTierColor(player.tiers.Vanilla)};"><img class="gamemode-image-player" src="Assets/End_Crystal.png" alt="end crystal"></div>
                         <div class="gamemode-type" style="background-color: ${getTierColor(player.tiers.Vanilla)};">${player.tiers.Vanilla}</div>
                     </div>
-                    <div id="mace-gamemode">
+                    <div id="mace-gamemode" data-tooltip="Mace ${player.tiers.Mace}">
                         <div class="img-border" style="border: solid 2px ${getTierColor(player.tiers.Mace)}; box-shadow: 0 0 3px ${getTierColor(player.tiers.Mace)};"><img class="gamemode-image-player" src="Assets/Mace.png" alt="mace"></div>
                         <div class="gamemode-type" style="background-color: ${getTierColor(player.tiers.Mace)};">${player.tiers.Mace}</div>
                     </div>
-                    <div id="smp-gamemode">
+                    <div id="smp-gamemode" data-tooltip="SMP ${player.tiers.SMP}">
                         <div class="img-border" style="border: solid 2px ${getTierColor(player.tiers.SMP)}; box-shadow: 0 0 3px ${getTierColor(player.tiers.SMP)};"><img class="gamemode-image-player" src="Assets/Shield.png" alt="shield"></div>
                         <div class="gamemode-type" style="background-color: ${getTierColor(player.tiers.SMP)};">${player.tiers.SMP}</div>
                     </div>
-                    <div id="dia-pot-gamemode">
+                    <div id="dia-pot-gamemode" data-tooltip="Pot ${player.tiers.Diamond_pot}">
                         <div class="img-border" style="border: solid 2px ${getTierColor(player.tiers.Diamond_pot)}; box-shadow: 0 0 3px ${getTierColor(player.tiers.Diamond_pot)};"><img class="gamemode-image-player" src="Assets/Potion_Healing.png" alt="potion"></div>
                         <div class="gamemode-type" style="background-color: ${getTierColor(player.tiers.Diamond_pot)};">${player.tiers.Diamond_pot}</div>
                     </div>
-                    <div id="neth-pot-gamemode">
+                    <div id="neth-pot-gamemode" data-tooltip="Neth Pot ${player.tiers.Netherite_pot}">
                         <div class="img-border" style="border: solid 2px ${getTierColor(player.tiers.Netherite_pot)}; box-shadow: 0 0 3px ${getTierColor(player.tiers.Netherite_pot)};"><img class="gamemode-image-player" src="Assets/Netherite_Helmet.png" alt="netherite helmet"></div>
                         <div class="gamemode-type" style="background-color: ${getTierColor(player.tiers.Netherite_pot)};">${player.tiers.Netherite_pot}</div>
                     </div>
@@ -345,35 +345,35 @@ const tierPoints = {
                     <div class="player-title" style="color: ${playerTitle.color};">${playerTitle.title}<span style="color: rgb(153, 153, 153); font-weight: normal;">(${playerScore} points)</span></div>
                 </div>
                 <div class="gamemode-tiers">
-                    <div id="sword-gamemode">
+                    <div id="sword-gamemode" data-tooltip="Sword&#10; ${player.tiers.Sword}">
                         <div class="img-border" style="border: solid 2px ${getTierColor(player.tiers.Sword)}; box-shadow: 0 0 3px ${getTierColor(player.tiers.Sword)};"><img class="gamemode-image-player" src="Assets/Diamond_Sword.png" alt="diamond sword"></div>
                         <div class="gamemode-type" style="background-color: ${getTierColor(player.tiers.Sword)};">${player.tiers.Sword}</div>
                     </div>
-                    <div id="axe-gamemode">
+                    <div id="axe-gamemode" data-tooltip="Axe ${player.tiers.Axe}">
                         <div class="img-border" style="border: solid 2px ${getTierColor(player.tiers.Axe)}; box-shadow: 0 0 3px ${getTierColor(player.tiers.Axe)};"><img class="gamemode-image-player" src="Assets/Diamond_Axe.png" alt="diamond axe"></div>
                         <div class="gamemode-type" style="background-color: ${getTierColor(player.tiers.Axe)};">${player.tiers.Axe}</div>
                     </div>
-                    <div id="uhc-gamemode">
+                    <div id="uhc-gamemode" data-tooltip="UHC ${player.tiers.UHC}">
                         <div class="img-border" style="border: solid 2px ${getTierColor(player.tiers.UHC)}; box-shadow: 0 0 3px ${getTierColor(player.tiers.UHC)};"><img class="gamemode-image-player" src="Assets/Lava_Bucket.png" alt="diamond axe"></div>
                         <div class="gamemode-type" style="background-color: ${getTierColor(player.tiers.UHC)};">${player.tiers.UHC}</div>
                     </div>
-                    <div id="vanilla-gamemode">
+                    <div id="vanilla-gamemode" data-tooltip="Vanilla ${player.tiers.Vanilla}">
                         <div class="img-border" style="border: solid 2px ${getTierColor(player.tiers.Vanilla)}; box-shadow: 0 0 3px ${getTierColor(player.tiers.Vanilla)};"><img class="gamemode-image-player" src="Assets/End_Crystal.png" alt="end crystal"></div>
                         <div class="gamemode-type" style="background-color: ${getTierColor(player.tiers.Vanilla)};">${player.tiers.Vanilla}</div>
                     </div>
-                    <div id="mace-gamemode">
+                    <div id="mace-gamemode" data-tooltip="Mace ${player.tiers.Mace}">
                         <div class="img-border" style="border: solid 2px ${getTierColor(player.tiers.Mace)}; box-shadow: 0 0 3px ${getTierColor(player.tiers.Mace)};"><img class="gamemode-image-player" src="Assets/Mace.png" alt="mace"></div>
                         <div class="gamemode-type" style="background-color: ${getTierColor(player.tiers.Mace)};">${player.tiers.Mace}</div>
                     </div>
-                    <div id="smp-gamemode">
+                    <div id="smp-gamemode" data-tooltip="SMP ${player.tiers.SMP}">
                         <div class="img-border" style="border: solid 2px ${getTierColor(player.tiers.SMP)}; box-shadow: 0 0 3px ${getTierColor(player.tiers.SMP)};"><img class="gamemode-image-player" src="Assets/Shield.png" alt="shield"></div>
                         <div class="gamemode-type" style="background-color: ${getTierColor(player.tiers.SMP)};">${player.tiers.SMP}</div>
                     </div>
-                    <div id="dia-pot-gamemode">
+                    <div id="dia-pot-gamemode" data-tooltip="Pot ${player.tiers.Diamond_pot}">
                         <div class="img-border" style="border: solid 2px ${getTierColor(player.tiers.Diamond_pot)}; box-shadow: 0 0 3px ${getTierColor(player.tiers.Diamond_pot)};"><img class="gamemode-image-player" src="Assets/Potion_Healing.png" alt="potion"></div>
                         <div class="gamemode-type" style="background-color: ${getTierColor(player.tiers.Diamond_pot)};">${player.tiers.Diamond_pot}</div>
                     </div>
-                    <div id="neth-pot-gamemode">
+                    <div id="neth-pot-gamemode" data-tooltip="Neth Pot ${player.tiers.Netherite_pot}">
                         <div class="img-border" style="border: solid 2px ${getTierColor(player.tiers.Netherite_pot)}; box-shadow: 0 0 3px ${getTierColor(player.tiers.Netherite_pot)};"><img class="gamemode-image-player" src="Assets/Netherite_Helmet.png" alt="netherite helmet"></div>
                         <div class="gamemode-type" style="background-color: ${getTierColor(player.tiers.Netherite_pot)};">${player.tiers.Netherite_pot}</div>
                     </div>
@@ -393,3 +393,58 @@ const tierPoints = {
 
         renderLeaderboard(filtered);
     });
+
+const tooltip = document.createElement("div");
+tooltip.className = "tooltip";
+document.body.appendChild(tooltip);
+
+let activeEl = null;
+
+document.addEventListener("mouseover", (e) => {
+    const el = e.target.closest("[data-tooltip]");
+    if (!el) return;
+
+    activeEl = el;
+    tooltip.textContent = el.getAttribute("data-tooltip");
+});
+
+function updateTooltipPosition() {
+    if (!activeEl) return;
+
+    const rect = activeEl.getBoundingClientRect();
+
+    tooltip.style.left = rect.left + rect.width / 2 + "px";
+    tooltip.style.top = rect.top - 8 + "px";
+}
+
+document.addEventListener("mouseover", (e) => {
+    const el = e.target.closest("[data-tooltip]");
+    if (!el) return;
+
+    activeEl = el;
+    tooltip.textContent = el.getAttribute("data-tooltip");
+   
+
+    const rect = el.getBoundingClientRect();
+
+    tooltip.style.left = rect.left + rect.width / 2 + "px";
+    tooltip.style.top = rect.top - 4 + "px";
+
+    tooltip.classList.add("show");
+});
+
+document.addEventListener("mouseout", (e) => {
+    if (!activeEl) return;
+    
+    if (!e.relatedTarget || !e.relatedTarget.closest("[data-tooltip]")) {
+        activeEl = null;
+        tooltip.classList.remove("show")
+    }
+});
+
+function tooltipLoop() {
+    updateTooltipPosition();
+    requestAnimationFrame(tooltipLoop);
+}
+
+tooltipLoop();
