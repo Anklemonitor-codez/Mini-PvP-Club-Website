@@ -1,4 +1,3 @@
-
 const tierPoints = {
         "HT1": 60,
         "LT1": 45,
@@ -10,133 +9,141 @@ const tierPoints = {
         "LT4": 3,
         "HT5": 2,
         "LT5": 1
-};
+    };
 
-const titles = [
-    { minScore: 0, title: "Beginner", color: "var(--beginnerColor)"},
-    { minScore: 10, title: "Intermediate", color: "var(--intermediateColor)"},
-    { minScore: 25, title: "Advanced", color: "var(--advancedColor)"},
-    { minScore: 50, title: "Pro", color: "var(--proColor)" },
-    { minScore: 100, title: "Master", color: "var(--masterColor)"},
-    { minScore: 200, title: "Grandmaster", color: "var(--grandmasterColor)"},
-    { minScore: 300, title: "Champion", color: "var(--championColour)"}
+    const titles = [
+        { minScore: 0, title: "Beginner", color: "var(--beginnerColor)"},
+        { minScore: 10, title: "Intermediate", color: "var(--intermediateColor)"},
+        { minScore: 25, title: "Advanced", color: "var(--advancedColor)"},
+        { minScore: 50, title: "Pro", color: "var(--proColor)" },
+        { minScore: 100, title: "Master", color: "var(--masterColor)"},
+        { minScore: 200, title: "Grandmaster", color: "var(--grandmasterColor)"},
+        { minScore: 300, title: "Champion", color: "var(--championColour)"}
         
-];
+    ];
 
-let players = [];
+    let players = [];
 
-main();
+    main();
 
-async function main() {
-    players = await fetchData();
+    async function main() {
+        players = await fetchData();
 
-    const leaderboard = document.querySelector('#leaderboard');
+        const leaderboard = document.querySelector('#leaderboard');
 
-    players.forEach(player => {
-        player.score = calculateScore(player);
-    });
+        players.forEach(player => {
+            player.score = calculateScore(player);
+        });
 
-    players.sort((a, b) => b.score - a.score);
+        players.sort((a, b) => b.score - a.score);
 
-    players.forEach((player, index) => {
-        player.Rank = index + 1;
-    });
+        players.forEach((player, index) => {
+            player.Rank = index + 1;
+        });
 
-    renderLeaderboard(players);
-}
-
-async function fetchData() {
-    const res = await fetch(
-        `players.json?nocache=${Date.now()}`,
-        {
-            cache: "no-store"
-        }
-    );
-    const data = await res.json();
-    return data;
-}
-
-function displayInfo() {
-    document.getElementById('info-floater').style.visibility = 'visible';
-    document.getElementById('floater-background').style.display = 'inline';
-    disableScroll();
-}
-
-function hideInfo() {
-    document.getElementById('info-floater').style.visibility = 'hidden';
-    document.getElementById('floater-background').style.display = 'none';
-    document.getElementById('info-floater-points').style.visibility = 'hidden';
-    enableScroll()
-}
-
-function switchToTitles() {
-    document.getElementById('info-floater').style.visibility = 'visible';
-    document.getElementById('info-floater-points').style.visibility = 'hidden';
-}
-
-function switchToPoints() {
-    document.getElementById('info-floater-points').style.visibility = 'visible';
-    document.getElementById('info-floater').style.visibility = 'hidden';
-}
-
-function calculateScore(player) {
-    return Object.values(player.tiers)
-        .reduce((total, tier) => total + (tierPoints[tier] || 0), 0);
-}
-
-function getTitle(score) {
-    let current = titles[0];
-
-    for (const t of titles) {
-        if (score >= t.minScore) {
-            current = t;
-        } else {
-            break;
-        }
+        renderLeaderboard(players);
     }
 
-    return current;
-}
+    async function fetchData() {
+        const res = await fetch(
+            `players.json?nocache=${Date.now()}`,
+            {
+                cache: "no-store"
+            }
+        );
+        const data = await res.json();
+        return data;
+    }
 
-function getTierColor(tier, playerTitle) {
-    if (tier == "---") return `var(--unranked)`;
-    return `var(--${tier})`;
-}
+    function displayInfo() {
+        document.getElementById('info-floater').style.visibility = 'visible';
+        document.getElementById('floater-background').style.display = 'inline';
+        disableScroll();
+    }
 
-function hidePlayerStats() {
-    document.getElementById('floater-background').style.display = 'none';
-    document.getElementById('player-stats').remove();
+    function hideInfo() {
+        document.getElementById('info-floater').style.visibility = 'hidden';
+        document.getElementById('floater-background').style.display = 'none';
+        document.getElementById('info-floater-points').style.visibility = 'hidden';
+        enableScroll()
+    }
 
-    enableScroll();
-}
+    function switchToTitles() {
+         document.getElementById('info-floater').style.visibility = 'visible';
+        document.getElementById('info-floater-points').style.visibility = 'hidden';
+    }
 
-function disableScroll() {
-    document.body.style.overflow = "hidden";
-}
+    function switchToPoints() {
+        document.getElementById('info-floater-points').style.visibility = 'visible';
+        document.getElementById('info-floater').style.visibility = 'hidden';
+    }
 
-function enableScroll() {
-    document.body.style.overflow = "auto";
-}
+    function calculateScore(player) {
+        return Object.values(player.tiers)
+            .reduce((total, tier) => total + (tierPoints[tier] || 0), 0);
+    }
 
-async function openPlayerStats(id, score, rank) {
-    const json = await fetchData();
-    const player = json.find(p => p.Username === id);
-    document.getElementById('info-floater').style.visibility = 'hidden';
-    document.getElementById('floater-background').style.display = 'inline';
-    document.getElementById('info-floater-points').style.visibility = 'hidden';
+    function getTitle(score) {
+        let current = titles[0];
 
-    console.log(score);
+        for (const t of titles) {
+            if (score >= t.minScore) {
+                current = t;
+            } else {
+                break;
+            }
+        }
 
-    const playerTitle = getTitle(score);
+        return current;
+    }
 
-    console.log(playerTitle);
+    function getTierColor(tier, playerTitle) {
+        if (tier == "---") return `var(--unranked)`;
+        return `var(--${tier})`;
+    }
 
-    disableScroll();
+    function hidePlayerStats() {
+        document.getElementById('floater-background').style.display = 'none';
+        document.getElementById('player-stats').remove();
 
-    document.getElementById('floater-container').innerHTML += `<div class="floating" id="player-stats">
+        enableScroll();
+    }
+
+    function disableScroll() {
+        document.body.style.overflow = "hidden";
+    }
+
+    function enableScroll() {
+        document.body.style.overflow = "auto";
+    }
+
+    async function openPlayerStats(id, score, rank) {
+        const json = await fetchData();
+        const player = json.find(p => p.Username === id);
+        document.getElementById('info-floater').style.visibility = 'hidden';
+        document.getElementById('floater-background').style.display = 'inline';
+        document.getElementById('info-floater-points').style.visibility = 'hidden';
+
+        console.log(score);
+
+        const playerTitle = getTitle(score);
+
+        console.log(playerTitle);
+
+        disableScroll();
+
+        document.getElementById('floater-container').innerHTML += `<div class="floating" id="player-stats">
                 <img class="player-circ-image" src="https://render.crafty.gg/3d/bust/${player.Username}" alt="${player.Username} bust">
                 <div class="username-stats">${player.Username}</div>
                 <div class="title-stats" style="color: ${playerTitle.color};">${playerTitle.title}</div>
+                <a id="namemc-link" href="https://namemc.com/profile/${player.Username}" target="_blank">
+                    <div class="namemc">
+                        <img width="20" height="20" src="https://pt.minecraft.wiki/images/NameMC.png?f63c3">
+                        <span id="namemc-text">NameMC</span>
+                        <i style="font-size: 12px;" class="fa-solid fa-up-right-from-square"></i> 
+                    </div>
+                <a> 
+                
                 <span class="position-title">POSITION</span>
                 <div class="position-on-leaderboard-wrapper">
                     <div class="overall-text">OVERALL:</div>
@@ -181,22 +188,22 @@ async function openPlayerStats(id, score, rank) {
                     </div>
                 </div>
                 </div>`;
-}
+    }
 
-function renderLeaderboard(playerList) {
+    function renderLeaderboard(playerList) {
 
-    const leaderboard = document.querySelector('#leaderboard');
+        const leaderboard = document.querySelector('#leaderboard');
 
-    leaderboard.innerHTML = '';
+        leaderboard.innerHTML = '';
 
-    for (const player of playerList) {
+        for (const player of playerList) {
 
-        const playerScore = player.score;
-        const playerTitle = getTitle(playerScore);
+            const playerScore = player.score;
+            const playerTitle = getTitle(playerScore);
 
-        if (player.Rank == 1) {
+            if (player.Rank == 1) {
                 leaderboard.innerHTML += `<div class="leaderboard-slot-1" onclick="openPlayerStats('${player.Username}', ${playerScore}, ${player.Rank})">
-                <div class="leaderboard-ranking-1">${player.Rank}</div>
+                <div class="leaderboard-ranking" id="leaderboard-ranking-1" style="background-color: var(--firstColor);">${player.Rank} .</div>
                 <img class="player-image" src="https://render.crafty.gg/3d/bust/${player.Username}" alt="${player.Username} bust">
                 <div class="points-badge-and-name">
                     <div class="username">${player.Username}</div>
@@ -237,11 +244,11 @@ function renderLeaderboard(playerList) {
                     </div>
                 </div>
             </div>`;
-        }
+            }
 
-        else if (player.Rank == 2) {
+            else if (player.Rank == 2) {
                 leaderboard.innerHTML += `<div class="leaderboard-slot-2" onclick="openPlayerStats('${player.Username}', ${playerScore}, ${player.Rank})">
-                <div class="leaderboard-ranking-2">${player.Rank}</div>
+                <div class="leaderboard-ranking" id="leaderboard-ranking-2" style="background-color: var(--secondColor);">${player.Rank} .</div>
                 <img class="player-image" src="https://render.crafty.gg/3d/bust/${player.Username}" alt="${player.Username} bust">
                 <div class="points-badge-and-name">
                     <div class="username">${player.Username}</div>
@@ -282,11 +289,11 @@ function renderLeaderboard(playerList) {
                     </div>
                 </div>
             </div>`;
-        }
+            }
 
-        else if (player.Rank == 3) {
+            else if (player.Rank == 3) {
                 leaderboard.innerHTML += `<div class="leaderboard-slot-3" onclick="openPlayerStats('${player.Username}', ${playerScore}, ${player.Rank})">
-                <div class="leaderboard-ranking-3">${player.Rank}</div>
+                <div class="leaderboard-ranking" id="leaderboard-ranking-3" style="background-color: var(--thirdColor);">${player.Rank} .</div>
                 <img class="player-image" src="https://render.crafty.gg/3d/bust/${player.Username}" alt="${player.Username} bust">
                 <div class="points-badge-and-name">
                     <div class="username">${player.Username}</div>
@@ -327,11 +334,11 @@ function renderLeaderboard(playerList) {
                     </div>
                 </div>
             </div>`;
-        }
+            }
 
-        else {
+            else {
                 leaderboard.innerHTML += `<div class="leaderboard-slot" onclick="openPlayerStats('${player.Username}', ${playerScore}, ${player.Rank})">
-                <div class="leaderboard-ranking">${player.Rank}</div>
+                <div class="leaderboard-ranking" id="leaderboard-ranking-4" style="background-color: var(--fourthColor);">${player.Rank} .</div>
                 <img class="player-image" src="https://render.crafty.gg/3d/bust/${player.Username}" alt="${player.Username} bust">
                 <div class="points-badge-and-name">
                     <div class="username">${player.Username}</div>
@@ -372,17 +379,17 @@ function renderLeaderboard(playerList) {
                     </div>
                 </div>
             </div>`;
+            }
         }
     }
-}
 
-document.getElementById('search').addEventListener('input', (e) => {
+    document.getElementById('search').addEventListener('input', (e) => {
 
-    const query = e.target.value.toLowerCase();
+        const query = e.target.value.toLowerCase();
 
-    const filtered = players.filter(player =>
-        player.Username.toLowerCase().includes(query)
-    );
+        const filtered = players.filter(player =>
+            player.Username.toLowerCase().includes(query)
+        );
 
-    renderLeaderboard(filtered);
-});
+        renderLeaderboard(filtered);
+    });
