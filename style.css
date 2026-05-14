@@ -979,4 +979,8 @@ body {
     #player-stats {
         width: 65vw;
     }
+
+    .header {
+        width: 100vw;
+    }
 }
