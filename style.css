@@ -320,6 +320,11 @@ body {
     text-shadow: 0 0 5px rgb(0, 0, 0);
 }
 
+#gamemodes {
+    margin-left: auto;
+    margin-right: auto;
+}
+
 .floating {
     position:fixed;
     background: var(--floaterColor);
@@ -334,7 +339,7 @@ body {
     border-radius: 40px;
     display: flex;
     opacity: 1;
-    transition: opacity 0.2s;
+    transition: opacity 0.3s ease;
     border-color: rgb(90, 90, 90);
     border-style: solid;
     border-width: 2px;
@@ -342,6 +347,7 @@ body {
     scrollbar-width: none;
     position: absolute;
     overflow-y: auto;
+    overflow-x: hidden;
     align-items: center;
     flex-direction: column;
     visibility: hidden;
@@ -385,6 +391,12 @@ body {
     border-style: solid;
     padding: 10px;
     z-index: 10;
+    transition: scale 0.2s;
+    cursor: pointer;
+}
+
+.info-panels:hover {
+    scale: 1.1;
 }
 
 .info-panels img {
@@ -452,11 +464,11 @@ body {
 
 #top-scroll-hider {
     background-color: rgb(36, 35, 49);
-    width: 23.5vw;
+    width: 26vw;
     height: 125px;
     z-index: 11;
-    border-top-left-radius: 15px;
-    border-top-right-radius: 15px;
+    border-top-left-radius: 35px;
+    border-top-right-radius: 35px;
     position: fixed;
     left: 50%;
     transform: translateX(-50%);
@@ -982,5 +994,29 @@ body {
 
     .header {
         width: 100vw;
+    }
+}
+
+#leaderboard {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeUp 0.8s ease forwards;
+}
+
+.header {
+    transform: translateY(-10px);
+    animation: headerFade 0.4s ease forwards;
+}
+
+@keyframes fadeUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes headerFade {
+    to {
+        transform: translateY(0);
     }
 }

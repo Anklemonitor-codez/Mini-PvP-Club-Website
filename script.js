@@ -57,12 +57,14 @@ const tierPoints = {
 
     function displayInfo() {
         document.getElementById('info-floater').style.visibility = 'visible';
+        document.getElementById('info-floater').style.opacity = '1';
         document.getElementById('floater-background').style.display = 'inline';
         disableScroll();
     }
 
     function hideInfo() {
         document.getElementById('info-floater').style.visibility = 'hidden';
+        document.getElementById('info-floater').style.opacity = '0';
         document.getElementById('floater-background').style.display = 'none';
         document.getElementById('info-floater-points').style.visibility = 'hidden';
         enableScroll()
@@ -70,11 +72,13 @@ const tierPoints = {
 
     function switchToTitles() {
          document.getElementById('info-floater').style.visibility = 'visible';
+         document.getElementById('info-floater').style.opacity = '1';
         document.getElementById('info-floater-points').style.visibility = 'hidden';
     }
 
     function switchToPoints() {
         document.getElementById('info-floater-points').style.visibility = 'visible';
+        document.getElementById('info-floater').style.opacity = '1';
         document.getElementById('info-floater').style.visibility = 'hidden';
     }
 
@@ -394,57 +398,58 @@ const tierPoints = {
         renderLeaderboard(filtered);
     });
 
-const tooltip = document.createElement("div");
-tooltip.className = "tooltip";
-document.body.appendChild(tooltip);
+    const tooltip = document.createElement("div");
+    tooltip.className = "tooltip";
+    document.body.appendChild(tooltip);
+    tooltip.ariaRoleDescription = "tooltip";
 
-let activeEl = null;
+    let activeEl = null;
 
-document.addEventListener("mouseover", (e) => {
-    const el = e.target.closest("[data-tooltip]");
-    if (!el) return;
+    document.addEventListener("mouseover", (e) => {
+        const el = e.target.closest("[data-tooltip]");
+        if (!el) return;
 
-    activeEl = el;
-    tooltip.textContent = el.getAttribute("data-tooltip");
-});
+        activeEl = el;
+        tooltip.textContent = el.getAttribute("data-tooltip");
+    });
 
-function updateTooltipPosition() {
-    if (!activeEl) return;
+    function updateTooltipPosition() {
+        if (!activeEl) return;
 
-    const rect = activeEl.getBoundingClientRect();
+        const rect = activeEl.getBoundingClientRect();
 
-    tooltip.style.left = rect.left + rect.width / 2 + "px";
-    tooltip.style.top = rect.top - 8 + "px";
-}
+        tooltip.style.left = rect.left + rect.width / 2 + "px";
+        tooltip.style.top = rect.top - 8 + "px";
+    }
 
-document.addEventListener("mouseover", (e) => {
-    const el = e.target.closest("[data-tooltip]");
-    if (!el) return;
+    document.addEventListener("mouseover", (e) => {
+        const el = e.target.closest("[data-tooltip]");
+        if (!el) return;
 
-    activeEl = el;
-    tooltip.textContent = el.getAttribute("data-tooltip");
+        activeEl = el;
+        tooltip.textContent = el.getAttribute("data-tooltip");
    
 
-    const rect = el.getBoundingClientRect();
+        const rect = el.getBoundingClientRect();
 
-    tooltip.style.left = rect.left + rect.width / 2 + "px";
-    tooltip.style.top = rect.top - 4 + "px";
+        tooltip.style.left = rect.left + rect.width / 2 + "px";
+        tooltip.style.top = rect.top - 4 + "px";
 
-    tooltip.classList.add("show");
-});
+        tooltip.classList.add("show");
+    });
 
-document.addEventListener("mouseout", (e) => {
-    if (!activeEl) return;
+    document.addEventListener("mouseout", (e) => {
+        if (!activeEl) return;
     
-    if (!e.relatedTarget || !e.relatedTarget.closest("[data-tooltip]")) {
-        activeEl = null;
-        tooltip.classList.remove("show")
+        if (!e.relatedTarget || !e.relatedTarget.closest("[data-tooltip]")) {
+            activeEl = null;
+            tooltip.classList.remove("show")
+        }
+    });
+
+    function tooltipLoop() {
+        updateTooltipPosition();
+        requestAnimationFrame(tooltipLoop);
     }
-});
 
-function tooltipLoop() {
-    updateTooltipPosition();
-    requestAnimationFrame(tooltipLoop);
-}
-
-tooltipLoop();
+    tooltipLoop();
