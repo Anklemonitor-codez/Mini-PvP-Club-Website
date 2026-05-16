@@ -18,7 +18,7 @@ const tierPoints = {
         { minScore: 50, title: "Pro", color: "var(--proColor)" },
         { minScore: 100, title: "Master", color: "var(--masterColor)"},
         { minScore: 200, title: "Grandmaster", color: "var(--grandmasterColor)"},
-        { minScore: 300, title: "Champion", color: "var(--championColour)"}
+        { minScore: 300, title: "Champion", color: "var(--championColor)"}
         
     ];
 
