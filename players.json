@@ -138,19 +138,5 @@
       "SMP": "---"
     },
     "Rank": ""
-  },
-  {
-    "Username": "test",
-    "tiers": {
-      "Sword": "HT1",
-      "Diamond_pot": "HT1",
-      "Netherite_pot": "---",
-      "Axe": "HT1",
-      "Vanilla": "HT1",
-      "UHC": "HT1",
-      "Mace": "HT1",
-      "SMP": "HT1"
-    },
-    "Rank": ""
   }
 ]
