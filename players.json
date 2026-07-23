@@ -194,5 +194,19 @@
       "SMP": "LT4"
     },
     "Rank": ""
+  },
+  {
+    "Username": "IntertwinedMC",
+    "tiers": {
+      "Sword": "HT5",
+      "Diamond_pot": "LT5",
+      "Netherite_pot": "LT5",
+      "Axe": "LT5",
+      "Vanilla": "LT5",
+      "UHC": "LT5",
+      "Mace": "LT5",
+      "SMP": "LT5"
+    },
+    "Rank": ""
   }
 ]
