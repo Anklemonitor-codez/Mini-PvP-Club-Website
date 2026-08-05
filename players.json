@@ -208,5 +208,19 @@
       "SMP": "LT5"
     },
     "Rank": ""
+  },
+  {
+    "Username": "vinculated",
+    "tiers": {
+      "Sword": "HT3",
+      "Diamond_pot": "---",
+      "Netherite_pot": "---",
+      "Axe": "--",
+      "Vanilla": "---",
+      "UHC": "---",
+      "Mace": "---",
+      "SMP": "---"
+    },
+    "Rank": ""
   }
 ]
