@@ -222,5 +222,19 @@
       "SMP": "HT5"
     },
     "Rank": ""
+  },
+  {
+    "Username": "Flametax",
+    "tiers": {
+      "Sword": "LT2",
+      "Diamond_pot": "---",
+      "Netherite_pot": "---",
+      "Axe": "---",
+      "Vanilla": "---",
+      "UHC": "---",
+      "Mace": "---",
+      "SMP": "---"
+    },
+    "Rank": ""
   }
 ]
